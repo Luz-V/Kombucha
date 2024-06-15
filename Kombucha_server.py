@@ -11,25 +11,22 @@ import csv
 ###### Serveur web minimaliste pour la gestion de requêtes en local d'un formulaire HTML
 
 ###### Utilise le framework Flask, ainsi que d'autres bibliothèques python tel que Geopandas et Fiona
-###### La rechercher et autocomplétion d'adresse fait appel à l'API Adresse du gouvernement Français
+###### La rechercher et autocomplétion d'adresse fait appel à l'API Adresse du gouvernement français et le script jQuery v3.6.0 ( (c) OpenJS Foundation)
 
-###### INSTALLATION SERVEUR :
-
-###### Script d'installation
+###### INSTALLATION SERVEUR : voir Script d'installation
 
 ###### Pour effectuer l'autocomplétion d'adresse en local, une instance Addok est requise : 
-
 ###### => https://github.com/BaseAdresseNationale/addok-docker#installer-une-instance-avec-les-donn%C3%A9es-de-la-base-adresse-nationale
 ###### => Données QPV officielles : https://www.data.gouv.fr/fr/datasets/quartiers-prioritaires-de-la-politique-de-la-ville-qpv/
 
 ###### Il est vivement conseillé d'utiliser un gestionnaire environnement virtuel comme venv pour l'installation des dépendances python. L'installation d'Addok indiquée ci-dessus se fait via docker.   
 
-###### Lancement de l'application sur la machine : flask --app formulaire_mix run
+###### Lancement de l'application sur machine : flask --app formulaire_mix run
 ###### Lancement de l'application en réseau local : flask --app formulaire run_mix --host=0.0.0.0
 
 
-###### CLIENT : 
-###### Aucune installation. Accès par navigateur HTTP aux adresses : 
+###### INSTALLATION CLIENT : 
+###### Aucune installation requise. Accès par navigateur HTTP aux adresses : 
 # http://$adresse_serveur:5000/
 # http://$adresse_serveur:5000/group
 # http://$adresse_serveur:5000/massive
