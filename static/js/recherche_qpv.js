@@ -1,4 +1,4 @@
-// Fonction de suggestion d'adresse basée
+// Fonction de suggestion d'adresse
 // Nombre de valeurs paramétrable dans /suggest_address (voir formulaire_mix.py)
 
 $(document).ready(function(){
