@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <!-- Formulaire HTML pour relevé de statistiques d'accès aux droits -->
+    <!-- Version groupée -->
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Titre -->
+        <title>Kombucha - Groupe</title>
+        <!-- Icone favicon.ico -->
+        <link rel="shortcut icon" href="/static/favicon.ico">
+
+        <!-- Style CSS -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+          
+        <!-- Fonctions -->
+          
+        <!-- Script d'autocomplétion pour la recherche d'adresse
+        Fonction anonyme qui encapsule le code jQuery
+        Crédits : jQuery v3.6.0 | (c) OpenJS Foundation and other contributors | jquery.org/license -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+        <!--  Fonction de suggestion d'adresse basée sur le script précédent-->
+        <script src="{{ url_for('static', filename='js/recherche_qpv.js') }}"></script>
+        
+        <!-- Fonctions d'ajout/suppression de ligne du tableau -->
+        <script src="{{ url_for('static', filename='js/tableau_groupe.js') }}"></script>
+
+        <!-- fonction calcule d'âge à partir de l'année de naissance saisie-->
+        <script>  	   
+            function calculerAge(rowIndex) {
+                var anneeNaissanceInput = document.getElementsByName("annee_naissance[]")[rowIndex];
+                var ageInput = document.getElementsByName("age[]")[rowIndex];
+            
+                // Vérifier si une année de naissance est saisie
+                if (anneeNaissanceInput.value !== "") {
+                    var anneeNaissance = parseInt(anneeNaissanceInput.value);
+                    var age = new Date().getFullYear() - anneeNaissance;
+                
+                    // Mettre à jour le champ d'âge correspondant
+                    ageInput.value = age;
+                } else {
+                    ageInput.value = ""; // Réinitialiser le champ d'âge si aucune année de naissance n'est saisie
+                }
+            }  
+             
+            // fonction de reset de tous les champs saisis (désactivée)
+            
+            function effacerChamps() {
+                // Réinitialiser les champs Age et Objet de la demande
+                document.getElementById("objet_demande").value = "";
+
+                // Effacer les lignes du tableau sauf la première
+                var table = document.getElementById("grouped-fields").getElementsByTagName('tbody')[0];
+                var rowCount = table.rows.length;
+                for (var i = rowCount - 1; i > 0; i--) {
+                    table.deleteRow(i);
+                }
+
+                // Effacer les valeurs des champs de la première ligne
+                var firstRowCells = table.rows[0].getElementsByTagName('td');
+                for (var j = 0; j < firstRowCells.length - 1; j++) { 
+                    // Exclure la dernière colonne avec le bouton de suppression
+                    var input = firstRowCells[j].getElementsByTagName('input')[0];
+                    var select = firstRowCells[j].getElementsByTagName('select')[0];
+                    if (input) {
+                        input.value = "";
+                    }
+                    if (select) {
+                        select.selectedIndex = 0; // Sélectionner la première option par défaut
+                    }
+                }
+            }
+
+            // Décommenter pour activer le reset lorsque la page est chargée/rechargée
+            //window.onload = effacerChamps()           
+
+        </script>
+    </head>
+
+    <!-- Corps de page -->
+    <body>
+
+        <!-- Titre -->
+        <div class="image-container">
+            <img class="logo" src="{{ url_for('static', filename='icon4.png') }}" alt="Icône Kombucha">
+        </div>
+        <div class="title-container">
+            <h1>Kombucha</h1>
+            <div style="margin-bottom: 10px;"></div>
+            <h2>Formulaire hors ligne - Saisie de groupe</h2>
+        </div><br>
+
+        <!-- Début Formulaire -->
+        <form id="grouped-form" method="post" action="/group">
+        
+        <!-- Liste à points -->
+            <ul>
+                <li>
+                    <!-- Champ de saisie pour la date -->
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" value="{{ today_date }}" required>
+                </li>
+                <!-- Champ de saisie pour l'objet de la demande -->
+                <li>
+                    <label for="objet_demande">Intitulé de la session</label><br>
+                    <textarea id="objet_demande" name="objet_demande" rows="1" cols="70" maxlength="300" required></textarea>
+                </li>
+            </ul>
+         
+            <!-- Tableau pour les autres champs -->
+            <table id="grouped-fields">
+                <thead>
+                    <tr>
+                        <th>Age ou</th>
+                        <th>Année de<br>naissance</th>
+                        <th>Genre</th>
+                        <th>Provenance<br>ou</th>
+                        <th>Code<br>postal</th>
+                        <th>QPV</th>
+                        <th>Type de logement</th>
+                        <th>Autre logement<br>(préciser)</th>
+                        <th>Commentaire facultatif<br>(préciser)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- La première ligne sera ajoutée par défaut -->
+                    <tr>
+                        <td><input type="number" name="age[]" placeholder="Âge" required style="margin-right: 5px; width: 6ch" ></td>
+                        <td><input type="number" name="annee_naissance[]" placeholder="Année" onchange="calculerAge(0)" style="width: 8ch"></td>
+                        <td>
+                            <select name="genre[]" style="width: 6ch" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="M">M</option>
+                                <option value="F">F</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="provenance[]" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="Quartier des Amandiers">Amandiers</option>
+                                <option value="Autre 20ème">Autre 20ème</option>
+                                <option value="Autre code postal">Autre CP</option>
+                            </select>
+                        </td>
+                        <td><input type="text" name="code_postal[]" style="width: 5ch"></td>
+                        <td>
+                            <select name="qpv[]" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="Non renseigné">?</option>
+                                <option value="Amandiers">Amandiers</option>
+                                <option value="Porte 20ème">Porte 20ème</option>
+                                <option value="Autre QPV">Autre QPV</option>
+                                <option value="Hors QPV">Hors QPV</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="type_logement[]" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="Paris Habitat">Paris Habitat</option>
+                                <option value="RIVP">RIVP</option>
+                                <option value="Elogie">Elogie</option>
+                                <option value="Autre bailleur social">Autre social</option>
+                                <option value="Coalia">Foyer Coalia</option>
+                                <option value="ADEF">Foyer ADEF</option>
+                                <option value="Adoma">Foyer Adoma</option>
+                                <option value="Logement privé">Logement privé</option>
+                                <option value="Autre">Autre (préciser)</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:13ch" name="precisez[]" maxlength="50"></td>
+                        <td><input type="text" name="commentaire[]"></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" onclick="addRow()">Ajouter une ligne</button><br><br>
+
+            <!-- Champ d'adresse et bouton pour vérifier QPV -->
+            <label for="adresse">Adresse pour vérification QPV (ne sera pas enregistrée) :</label>
+            <div style="margin-bottom: 5px;"></div>
+            <button id="verifierQPV" type="button">
+                <span>
+                    <img src="{{ url_for('static', filename='map-pin-solid.svg') }}"> Vérifier QPV
+                </span>
+            </button>
+            <input type="text" id="adresse" name="adresse" list="suggestions" style="width: 65ch; font-size: 1rem !important;" autocomplete="off" placeholder="Adresse postale">
+            <datalist id="suggestions"></datalist><br>
+            <div style="margin-bottom: 20px;"></div>
+
+            <!-- Boutons pour soumettre et effacer le formulaire -->
+            <button type="submit"><span><img src="{{ url_for('static', filename='floppy-disk-regular.svg') }}"></span> Enregistrer</button>
+            <button type="button" onclick="effacerChamps()"><span><img src="{{ url_for('static', filename='eraser-solid.svg') }}"></span>Effacer</button>
+            
+        </form>
+        {% if message %}
+        <!-- Message de confirmation de l'enregistrement -->
+        <script>alert("Données sauvegardées");</script>
+        {% endif %}
+    </body>
+</html>
+

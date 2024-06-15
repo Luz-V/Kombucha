@@ -1,0 +1,86 @@
+/* Définition de la taille de police de base en rem */
+html {
+    font-size: 16pt; /* Taille de police de base en pixels */
+}
+
+/* Titre */
+.image-container {
+    position: absolute; /* Position absolue pour l'image-container */
+    top: 0; /* Aligner le haut de l'image-container avec le haut de la page */
+    left: 0; /* Aligner l'image-container avec le côté gauche de la page */
+    width: 110px; /* Largeur fixe de l'image */
+    height: 110px; /* Hauteur fixe de l'image-container */
+    overflow: hidden; /* Cache le contenu qui dépasse de la hauteur */
+}
+
+.logo {
+    height: 100%; /* Hauteur de l'image à 100% de son conteneur */
+    width: auto; /* Ajuste automatiquement la largeur en fonction de la hauteur */
+    display: block; /* Permet de centrer verticalement l'image */
+}
+.title-container {
+    margin-left: 90px; /* Ajoute une marge à gauche pour l'espace de l'image */
+    overflow: hidden;
+}
+.title-container h1 {
+    margin: 0; /* Supprime la marge par défaut du titre */ */
+}
+.title-container h2 {
+    margin: 0; /* Supprime la marge par défaut du sous-titre */
+    font-size: 1.1rem; /* Taille de police du sous-titre (1rem = taille de base) */
+}
+
+/* Style du corps de texte */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 13px;
+    font-size: 1rem ;
+    /********** ACCESSIBLITE : augmente le zoom ***************/
+    transform: scale(1); /* Zoom de 20% */
+    transform-origin: top left; /* Point d'origine en haut à gauche */
+}
+input {
+    font-size: 1rem ;
+}
+select {
+    font-size: 1rem ;
+}
+button {
+    font-size: 1rem ;
+}
+textarea {
+    font-size: 1rem ;
+}
+ul {
+    list-style-type: disc; /* Type de puce */
+    padding-left: 10px; /* Marge à gauche */
+}
+li {
+    margin-bottom: 19px; /* Espacement entre les éléments de la liste */
+}
+
+/* marge à droite des labels*/
+.inline-fields label {
+    margin-right: 10px;
+}
+
+/* Style d'icône des boutons */
+button img {
+    width: auto; /* Largeur de l'icône */
+    height: 1em; /* Hauteur de l'icône */
+    margin-right: 1px; /* Espacement entre l'icône et le texte */
+}
+
+/* Style pour le champ d'adresse */
+#adresse {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Style pour afficher les champs âge et année de naissance sur la même ligne */
+.inline-fields {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

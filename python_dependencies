@@ -1,0 +1,8 @@
+flask
+shapely.geometry
+datetime
+geopandas
+fiona
+sys
+requests
+csv
