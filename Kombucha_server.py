@@ -11,7 +11,7 @@ import csv
 ###### Serveur web minimaliste pour la gestion de requêtes en local d'un formulaire HTML
 
 ###### Utilise le framework Flask, ainsi que d'autres bibliothèques python tel que Geopandas et Fiona
-###### La rechercher et autocomplétion d'adresse fait appel à l'API Adresse du gouvernement Français et le script jQuery v3.6.0 ( (c) OpenJS Foundation)
+###### La rechercher et autocomplétion d'adresse fait appel à l'API Adresse du gouvernement Français
 
 ###### INSTALLATION SERVEUR :
 

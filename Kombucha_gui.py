@@ -121,7 +121,7 @@ class MainWindow(QWidget):
         # Centrer la fenêtre au démarrage
         self.center_on_screen()
         # Icone
-        self.setWindowIcon(QIcon('favicon.ico'))
+        self.setWindowIcon(QIcon('kombucha.ico'))
         
         # Créer un raccourci clavier pour Ctrl+C
         shortcut = QShortcut(QKeySequence(Qt.CTRL + Qt.Key_C), self)
