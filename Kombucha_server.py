@@ -246,9 +246,6 @@ def process_coordinates():
     # La séparation de calques et leur concaténation dans un fichier gpkg peut être faite via Qgis
     layers = listlayers(fichier_gpkg)
     
-    # Chargement du fichier gpkg avec GeoPandas
-    gpkg = read_file(fichier_gpkg)
-    
     # Création d'un point à partir des coordonnées GPS
     point = Point(float(longitude), float(latitude))
 
