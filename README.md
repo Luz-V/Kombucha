@@ -1,4 +1,7 @@
-<h1> <img width="70" style="vertical-align:middle;" src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png"> <span width="70" style="vertical-align:middle;">Kombucha</span></h1>
+<h1 style="display: flex; align-items: center; margin: 0;">
+  <img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="70" style="margin-right: 10px;">
+  <span>Kombucha</span>
+</h1>
 
 Formulaire de saisie web pour l'accès aux droits :
 ![Exemple de formulaire](/static/example.png)
