@@ -1,7 +1,5 @@
 # Kombucha
-Formulaire de saisie web pour l'accès au droit 
-
-## [En construction]
+Formulaire de saisie web pour l'accès aux droits :
 ![Exemple de formulaire](/static/example.png)
 
 ## Description
