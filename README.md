@@ -21,7 +21,7 @@ Kombucha propose les fonctionnalités suivantes :
 - Enregistrement des données sur serveur au format CSV.
 - Interface graphique utilisateur pour activer/désactiver le serveur HTTPS et afficher les logs de connexion côté serveur.
 
-La vocation de cet projet est de fournir un outil facile à prendre en main pour les aidants numériques, tout en conservant les données saisie en réseau local pour s'assurer de leur protection. 
+La vocation de ce projet est de fournir un outil facile à prendre en main pour les aidants numériques, tout en conservant les données saisie en réseau local pour s'assurer de leur protection. 
 
 ⚠️ Les données traitées par ce formulaire sont **anonymisées**. Par soucis de respect du RGPD, ce programme n'a **pas vocation à traiter des données nominatives**.
 
