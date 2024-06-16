@@ -1,6 +1,6 @@
-<h1 style="display: flex; align-items: center; margin: 0;">
+<h1 style="display: flex; align-items: center;">
   <img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="70" style="margin-right: 10px;">
-  <span>Kombucha</span>
+  Kombucha
 </h1>
 
 Formulaire de saisie web pour l'accès aux droits :
