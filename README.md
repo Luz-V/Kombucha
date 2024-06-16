@@ -2,7 +2,7 @@
 
 <img align="left" width="100" height="100" src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png"> 
 
-Formulaire de saisie + serveur HTTP minimaliste et open source pour la saisie de données des équipes d'accès aux droits
+Formulaire de saisie web et serveur HTTP minimaliste open source pour la saisie de données des équipes d'accès aux droits. Projet utilisé en point d'accès au droit dans un centre social parisien.
 
 ![Exemple de formulaire](/static/example.png)
 
