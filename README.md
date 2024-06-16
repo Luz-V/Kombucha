@@ -1,10 +1,7 @@
-<table style="border-collapse: collapse; border: none;">
-  <tr style="border: none;">
-    <td><img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="100"></td>
-    <td><h1 style="display: inline; margin: 0;">Kombucha</h1></td>
-  </tr>
-</table>
-
+<h1 style="display: flex; align-items: center; margin: 0;">
+  <img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="48" style="margin-right: 10px;">
+  Kombucha
+</h1>
 Formulaire de saisie web pour l'accès aux droits :
 ![Exemple de formulaire](/static/example.png)
 
