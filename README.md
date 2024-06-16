@@ -1,7 +1,7 @@
-<img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="100">
 <h1>Kombucha</h1>
 
-Formulaire de saisie web pour l'accès aux droits :
+<img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="100">
+<span style="text-aligne: middle;">Formulaire de saisie web pour l'accès aux droits</span>
 ![Exemple de formulaire](/static/example.png)
 
 ## Description
