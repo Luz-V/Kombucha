@@ -81,7 +81,24 @@ cd ~/Kombucha
 ./run_gui.sh
 ```
 
+Lors du lancement du serveur (via le terminal ou l'interface de contrôle), Flask indique dans un message l'adresse http du serveur à communiquer aux clients. L'exemple ci-dessous est extrait des logs Flask :
+```
+ * Serving Flask app 'Kombucha_server'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.200.201:5000
+Press CTRL+C to quit
+```
+Dans l'exemple ci-dessus : 
+- l'adresse http://127.0.0.1:5000 peut être utilisée pour ouvrir le formulaire web depuis le serveur.
+- l'adresse http://192.168.200.201:5000 peut être utilisée pour ouvrir le formulaire web depuis les autres clients en réseau local.
+
+⚠️ En l'absence de configuration supplémentaire, le serveur n'est **pas accessible à un poste distant (hors réseau local)**. Pour des raisons de sécurité, il n'a **pas vocation à l'être**.
+
 ### Côté client
 
+Une fois le serveur lancé, les postes sur le même réseau local que le serveur peuvent se connecter directement au formulaire via navigateur web pour commencer la saisie de donnée. Dans l'exemple précédent, il s'agirait de l'adresse `http://192.168.200.201:5000` à indiquer dans le navigateur. Aucune installation n'est requise côté client, seule l'adresse est requise.
 
 ## 4. License
