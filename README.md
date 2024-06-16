@@ -4,20 +4,20 @@
 
 ## Description
 
-Serveur HTTPS minimaliste open source pour la saisie de donnée des structures d'accès au droit. Kombucha fournit les fonctionnalités suivantes :
+Serveur HTTPS minimaliste open source pour la saisie de donnée des équipes d'accès au droit. Kombucha fournit les fonctionnalités suivantes :
 - Formulaire web : saisie de données par champs pour une personne, un groupe, ou une liste de personnes.
-- Vérication de l'appartenance à une zone Quartier Prioritaire de la Ville (QPV) pour une adresse donnée, avec autocomplétion d'adresse postale.
+- Vérication de l'appartenance à une zone Quartier Prioritaire de la Ville (QPV) pour une adresse postale donnée, avec autocomplétion.
 - Enregistrement des données sur serveur au format CSV.
-- Partie serveur : Interface graphique utilisateur optionnelle pour activer/désactiver le serveur HTTPS et afficher les logs de connexion.
+- Partie serveur : Interface graphique utilisateur pour activer/désactiver le serveur HTTPS et afficher les logs de connexion.
 
-**Les données traitées par ce formulaire sont anonymisées. Par soucis de respect du RGPD, ce programme n'a pas vocation à traiter des données nominatives**
+La vocation de cet projet est de fournir un outil facile à prendre en main pour les aidants numériques, tout en conservant les données saisie en réseau local pour s'assurer de la protection des données. 
 
-La vocation de cet projet est de fournir un outil facile à prendre en main pour les aidants numériques, tout en conservant les données en réseau local. 
+**⚠️ Les données traitées par ce formulaire sont anonymisées. Par soucis de respect du RGPD, ce programme n'a pas vocation à traiter des données nominatives**
 
 - Si la procédure d'installation est effectuée intégralement (y compris l'étape ), **toutes les données saisies sont traitées en réseau local par le serveur**.
 - Si l'instance Addock n'est pas installée, la vérification des adresses postales nécessite une requête à l'[API Adresse](https://api-adresse.data.gouv.fr/search/) du domaine 'data.gouv.fr'. 
 
-La partie serveur HTTPS fonctionne avec la bibliothèque python [Flask](https://flask.palletsprojects.com) ainsi que quelques outils de traitement géographiques et géométriques ([geopandas](https://geopandas.org), [fiona](https://pypi.org/project/fiona/), [shapely](https://pypi.org/project/shapely/). L'interface web est un simple formulaire en HTML-CSS pourvue de quelques fonctions JavaScript, complétées par un script [jQuery](https://jquery.com/license/). L'interface graphique utilisaeur est construite avec PyQt5. 
+La partie serveur HTTPS fonctionne avec la bibliothèque python [Flask](https://flask.palletsprojects.com) ainsi que les outils de traitement géographiques et géométriques [fiona](https://pypi.org/project/fiona/), [shapely](https://pypi.org/project/shapely/). L'interface web est un simple formulaire en HTML-CSS pourvue de quelques fonctions JavaScript, complétées par un script [jQuery](https://jquery.com/license/). L'interface graphique utilisaeur est construite avec PyQt5. 
 
 
 ## 1. Installation
