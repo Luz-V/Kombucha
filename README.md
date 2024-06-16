@@ -1,8 +1,7 @@
 <h1>Kombucha</h1>
 
 <p style="display: flex; align-items: center; justify-content: center">
-<div style="max-width: 100%; max-height:100%;"><img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="100"></div>
-<div>Formulaire de saisie + serveur HTTP minimaliste et open source pour la saisie de données des équipes d'accès aux droits</div>
+<div style="max-width: 50%; max-height:100%;"><img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="100"></div><div>Formulaire de saisie + serveur HTTP minimaliste et open source pour la saisie de données des équipes d'accès aux droits</div>
 </p>
 
 ![Exemple de formulaire](/static/example.png)
