@@ -1,5 +1,5 @@
 <h1 style="display: flex; align-items: center;">
-  <img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="70" style="margin-right: 10px;">
+  <img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="40" style="margin-right: 10px;">
   Kombucha
 </h1>
 
