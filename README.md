@@ -14,13 +14,13 @@ La vocation de cet projet est de fournir un outil facile à prendre en main pour
 
 ⚠️ Les données traitées par ce formulaire sont **anonymisées**. Par soucis de respect du RGPD, ce programme n'a **pas vocation à traiter des données nominatives**
 
-- Si la procédure d'installation est effectuée intégralement (y compris l'[étape optionnelle](#optionnel--création-dune-instance-addock)), toutes les données saisies seront **traitées en réseau local** par le serveur.
+- Si la procédure d'installation est effectuée intégralement (y compris l'[étape optionnelle](#optionnel--création-dune-instance-adock)), toutes les données saisies seront **traitées en réseau local** par le serveur.
 - Si l'instance Addock n'est pas installée, la vérification des adresses postales nécessitera une requête à l'[API Adresse](https://api-adresse.data.gouv.fr/search/) du domaine 'data.gouv.fr'. 
 
 Coté client, L'interface web est un modeste formulaire HTML/CSS pourvu de quelques fonctions JavaScript complétées par un script [jQuery](https://jquery.com/license/). 
 La partie serveur HTTPS fonctionne avec la bibliothèque python [Flask](https://flask.palletsprojects.com) adossés à quelques outils de traitement géographiques et géométriques [fiona](https://pypi.org/project/fiona/), [shapely](https://pypi.org/project/shapely/).
 
-La recherche d'adresse fait appel l'[API Adresse](https://api-adresse.data.gouv.fr/search/) du gouvernement français, qui peut être hébergé localement via docker, ou en utilisant l'instance disponible sur ([data.gouv.fr](https://www.data.gouv.fr/fr/)). 
+La recherche d'adresse fait appel l'[API Adresse](https://api-adresse.data.gouv.fr/search/) du gouvernement français, qui peut être hébergé localement via docker, ou en utilisant l'instance disponible sur ([api-adresse.data.gouv.fr/search/](https://api-adresse.data.gouv.fr/search/)). 
 Deux bases de données du gouvernement français sont utilisées :
 - [Base Adresse Nationale](https://adresse.data.gouv.fr/donnees-nationales)
 - [Quartiers Prioritaires de la politique de la ville (QPV)](https://www.data.gouv.fr/fr/datasets/quartiers-prioritaires-de-la-politique-de-la-ville-qpv/)
@@ -51,7 +51,7 @@ Un fois l'exécution du script terminée, le serveur est prêt à être lancé �
 2. Installer les bibliothèques python suivantes (via anaconda, pip ou autre, environnement virtuel conseillé) : `flask, shapely, datetime, geopandas, fiona, requests, PyQt5, ansi2html`
 
 
-### Optionnel : Création d'une instance addock
+### Optionnel : Création d'une instance adock
 
 L'outil de recherche d'adresse et la base de donnée associée étant libre d'accès, il est possible de rentre autonome le traitement des adresses (autocomplétion + obtention des coordonnées géographiques pour vérification QPV).s
 
