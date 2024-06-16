@@ -67,10 +67,10 @@ L'outil de recherche d'adresse et la base de donnée associée étant en accès 
 
 La procédure détaillée est décrite ici : [Installer une instance avec les données de la base adresse nationale](https://github.com/BaseAdresseNationale/addok-docker#installer-une-instance-avec-les-donn%C3%A9es-de-la-base-adresse-nationale)
 
-Une fois l'installation terminée, **deux passages** du fichier `Kombucha_server.py` sont à modifier dans le code pour utiliser l'instance locale et non l'instance en ligne :
+Une fois l'installation terminée, la variable du booléen **adock_running** instancié en début de programme Kombucha_server.py` doit être modifié dans le code pour devenir `True{ :
 ```
-api_url = 'http://localhost:7878/search/' #Ligne à décommenter pour utiliser l'instance locale
-api_url = 'https://api-adresse.data.gouv.fr/search/' #Ligne à décommenter pour utiliser l'instance en ligne
+# Variable pour contrôler l'état de l'application Flask
+flask_running = True
 ```
 
 ⚠️ Ce choix implique une **mise à jour annuelle** de la Base Adresse Nationale. Mais il en va de toute façon de même pour les données géographiques QPV.
