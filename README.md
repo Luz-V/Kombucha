@@ -1,6 +1,6 @@
 <table>
   <tr>
-    <td><img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="48"></td>
+    <td><img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="70"></td>
     <td><h1 style="display: inline; margin: 0;">Kombucha</h1></td>
   </tr>
 </table>
