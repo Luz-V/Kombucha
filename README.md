@@ -1,4 +1,4 @@
-# <img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="48" style="text-align: center"> Kombucha
+# <div style="display: inline-flex; align-items: center;"><img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="48" style="margin-right: 8px;"><span>Kombucha</span></div>
 Formulaire de saisie web pour l'accès aux droits :
 ![Exemple de formulaire](/static/example.png)
 
@@ -58,7 +58,17 @@ L'outil de recherche d'adresse et la base de donnée associée étant libre d'ac
 
 ### Côté serveur
 
-Un serveur HTTPS minimaliste fonctionnant avec la bibliothèque python Flask est
+Sous Debian, l'activation de l'environnement python et le lancement de `Kombucha_server.py` se fait simplement via le script `run.sh` :
+```
+cd ~/Kombucha
+./run.sh
+```
+
+De même l'interface de contrôle graphique peut être utilisée à la place via `run_gui.sh` : 
+```
+cd ~/Kombucha
+./run_gui.sh
+```
 
 
 ## 3. License
