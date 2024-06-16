@@ -67,7 +67,7 @@ L'outil de recherche d'adresse et la base de donnée associée étant en accès 
 
 La procédure détaillée est décrite ici : [Installer une instance avec les données de la base adresse nationale](https://github.com/BaseAdresseNationale/addok-docker#installer-une-instance-avec-les-donn%C3%A9es-de-la-base-adresse-nationale)
 
-Une fois l'installation terminée, la variable du booléen **adock_running** instancié en début de programme Kombucha_server.py` doit être modifié dans le code pour devenir `True{ :
+Une fois l'installation terminée, la variable du booléen **adock_running** déclarée en début de programme Kombucha_server.py` doit être modifiée directement dans le code comme égale à `True :
 ```
 # Variable pour contrôler l'état de l'application Flask
 flask_running = True
