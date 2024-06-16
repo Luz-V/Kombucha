@@ -2,14 +2,13 @@
 
 <p style="display: flex; align-items: center; margin: 0;">
 <img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="100">
-<span>Formulaire de saisie web pour l'accès aux droits</span>
+<span>Formulaire de saisie + serveur HTTP minimaliste et open source pour la saisie de données des équipes d'accès aux droits</span>
 </p>
 
 ![Exemple de formulaire](/static/example.png)
 
 ## Description
-
-Serveur HTTP minimaliste et open source pour la saisie de données des équipes d'accès aux droits. Kombucha propose les fonctionnalités suivantes :
+Kombucha propose les fonctionnalités suivantes :
 - Formulaire web : saisie de données par champs pour une personne, un groupe, ou une liste de personnes.
 - Vérication de l'appartenance à une zone Quartier Prioritaire de la Ville (QPV) pour une adresse postale donnée, avec autocomplétion.
 - Enregistrement des données sur serveur au format CSV.
