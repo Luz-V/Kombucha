@@ -1,4 +1,4 @@
-<h1 style="display: flex; align-items: center;">
+<h1 style="display: flex; align-items: bottom;">
   <img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="40" style="margin-right: 10px;">
   Kombucha
 </h1>
