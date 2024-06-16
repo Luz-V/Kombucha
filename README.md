@@ -7,7 +7,7 @@
       <span style="display: inline; margin: 0;">Kombucha</span>
     </td>
   </tr>
-</table><h1>
+</table></h1>
 
 Formulaire de saisie web pour l'accès aux droits :
 ![Exemple de formulaire](/static/example.png)
