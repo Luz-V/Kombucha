@@ -8,10 +8,10 @@ Formulaire de saisie web et serveur HTTP minimaliste open source pour la saisie 
 
 ## Sommaire
 
-1. [Présentation](#presentation)
-2. [Installation](#installation)
-3. [Utilisation](#utilisation)
-4. [Licence](#licence)
+1. [Présentation](#1-presentation)
+2. [Installation](#2-installation)
+3. [Utilisation](#3-utilisation)
+4. [Licence](#4-licence)
 
 
 ## 1. Présentation
