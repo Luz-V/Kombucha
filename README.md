@@ -9,7 +9,7 @@
 
 Ce script vérifie l'installation de python3, python3-venv, python3-pip ainsi que les bibliothèques requises au fonctionnement du serveur. Une fois la vérification terminée, un environnement virtuel python venv est crée dans un sous dossier `.venv` à la racine du répertoire de travail. 
 
-Un fois l'exécution du script terminée, le serveur est prêt à être lancé à l'aide des scripts `run.sh` ou `run_gui.sh` (voir [Utilisation](/Utilisation))
+Un fois l'exécution du script terminée, le serveur est prêt à être lancé à l'aide des scripts `run.sh` ou `run_gui.sh` (voir [Utilisation](#2-utilisation))
 
 Liste des bibliothèques python installées par le script d'installation : flask, shapely, datetime, geopandas, fiona, requests, PyQt5, ansi2html
 
