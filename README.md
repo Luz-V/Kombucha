@@ -1,5 +1,5 @@
 <h1><img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="100">
-<span style="display: inline; margin: 0;">Kombucha</span>
+<span>Kombucha</span>
 </h1>
 
 Formulaire de saisie web pour l'accès aux droits :
