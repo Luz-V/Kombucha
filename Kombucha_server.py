@@ -37,12 +37,11 @@ import csv
 ##### Chemin vers le fichier gpkg utilisé pour les QPV
 ### Partie à mettre à jour en cas de modifications des données QPV
 # Ici, nous avons adaptés ce fichier gpkg pour distinguer 3 types de QPV : QPV Amandiers, QPV porte 20ème, et autres QPV.
-fichier_gpkg = "/home/lucvedie/projet_formulaire/QPV_split_WGS84.gpkg"
+fichier_gpkg = "~/Kombucha/QPV_split_WGS84.gpkg"
 
 ##### Chemin vers le fichier d'export des données
 ### A mettre à jour en fonction de l'arborsecence système
-filename = "/home/lucvedie/projet_formulaire/data.csv"
-### Fin de partie à mettre à jour
+filename = "~/Kombucha/data.csv"
 
 
 ##### Application Flask 
@@ -270,13 +269,11 @@ def save_data(path, data):
         if file.tell() == 0:
             ### Partie à mettre à jour en cas de modifications des champs du formulaire
             writer.writerow(["Date", "Genre", "Âge", "Provenance", "Quartier prioritaire de la Ville", "Type de logement", "Objet de la demande", "Traitement en interne", "Personne redirigée", "Commentaire"])
-            ### Fin de partie à mettre à jour
-            
         # Écrire les données
         writer.writerow(data)
 
 ##### Lancer l'application Flask avec ou sans mode deboggage
 # Indiquer les options ici
 if __name__ == '__main__':
-    #app.run(debug=True) # Mode hors ligne en mode débogage
+    #app.run(debug=True) # Mode hors ligne + débogage
     app.run(host="0.0.0.0") # Accessible depuis le réseau local 
