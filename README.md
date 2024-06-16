@@ -1,9 +1,9 @@
 <h1><table style="border-collapse: collapse; border: none;">
   <tr style="border: none;">
-    <td style="border: none; vertical-align: middle;">
+    <td style="border: none; vertical-align: middle; padding: 0;">
       <img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="100">
     </td>
-    <td style="border: none; vertical-align: middle;">
+    <td style="border: none; vertical-align: middle; padding: 0;">
       <span style="display: inline; margin: 0;">Kombucha</span>
     </td>
   </tr>
