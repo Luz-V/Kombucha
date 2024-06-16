@@ -103,8 +103,8 @@ WARNING: This is a development server. Do not use it in a production deployment.
 Press CTRL+C to quit
 ```
 Dans l'exemple ci-dessus : 
-- l'adresse http://127.0.0.1:5000 peut être utilisée pour ouvrir le formulaire web depuis le serveur.
-- l'adresse http://192.168.200.201:5000 peut être utilisée pour ouvrir le formulaire web depuis les autres clients en réseau local.
+- l'adresse `http://127.0.0.1:5000` peut être utilisée pour ouvrir le formulaire web depuis le serveur.
+- l'adresse `http://192.168.200.201:5000` peut être utilisée pour ouvrir le formulaire web depuis les autres clients en réseau local.
 
 ⚠️ En l'absence de configuration supplémentaire, le serveur n'est **pas accessible à un poste distant (hors réseau local)**. Pour des raisons de sécurité, il n'a **pas vocation à l'être**.
 
