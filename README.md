@@ -1,10 +1,10 @@
-# Kombucha - Formulaire de saisie de donnée
+# Kombucha - Formulaire  
 
 ## [En construction]
 
 ## Description
 
-Serveur HTTPS minimaliste open source pour la saisie de donnée des équipes d'accès au droit. Kombucha fournit les fonctionnalités suivantes :
+Serveur HTTP minimaliste et open source pour la saisie de donnée des équipes d'accès au droit. Kombucha fournit les fonctionnalités suivantes :
 - Formulaire web : saisie de données par champs pour une personne, un groupe, ou une liste de personnes.
 - Vérication de l'appartenance à une zone Quartier Prioritaire de la Ville (QPV) pour une adresse postale donnée, avec autocomplétion.
 - Enregistrement des données sur serveur au format CSV.
