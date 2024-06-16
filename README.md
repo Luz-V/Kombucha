@@ -1,5 +1,5 @@
 <table style="border-collapse: collapse; border: none;">
-  <tr>
+  <tr style="border: none;">
     <td style="display: inline; margin: 0;"><h1<img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="100"></td>
     <td style="display: inline; margin: 0;"> Kombucha</td></h1>
   </tr>
