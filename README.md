@@ -16,8 +16,8 @@ Formulaire de saisie web et serveur HTTP minimaliste open source pour la saisie 
 
 ## 1. Présentation
 Kombucha propose les fonctionnalités suivantes :
-- Formulaire web : saisie de données par champs pour une personne, un groupe, ou une liste de personnes.
-- Vérication de l'appartenance à une zone Quartier Prioritaire de la Ville (QPV) pour une adresse postale donnée, avec autocomplétion.
+- Formulaire web : saisie de données par champs pour une personne, une liste de personne, ou un groupe.
+- Vérification de l'appartenance à une zone Quartier Prioritaire de la Ville (QPV) pour une adresse postale donnée, avec autocomplétion.
 - Enregistrement des données sur serveur au format CSV.
 - Interface graphique utilisateur pour activer/désactiver le serveur HTTPS et afficher les logs de connexion côté serveur.
 
@@ -101,4 +101,13 @@ Dans l'exemple ci-dessus :
 
 Une fois le serveur lancé, les postes sur le même réseau local que le serveur peuvent se connecter directement au formulaire via navigateur web pour commencer la saisie de donnée. Dans l'exemple précédent, il s'agirait de l'adresse `http://192.168.200.201:5000` à indiquer dans le navigateur. Aucune installation n'est requise côté client, l'adresse http suffit.
 
-## 4. License
+Trois formulaires sont implémentés :
+- Un premier formulaire individuel accessible depuis l'adresse principale 
+- Un formulaire multiple pour une liste d'individus, accessible à l'adresse **/massive** - soit, en reprenant l'exemple précédent, `http://192.168.200.201:5000/massive`
+- Un formulaire de groupe pour une entrée collective, accessible à l'adresse **/group** - soit, en reprenant l'exemple précédent, `http://192.168.200.201:5000/group`
+
+## 4. Licence
+
+Le contenu original proposé dans ce dépot est sous licence MIT. Il est utilisable et modifiable librement, sous condition d'inclure la licence d'origine. La licence complète est [disponible ici](https://github.com/Luz-V/Kombucha/blob/main/LICENSE). Cette licence n'inclut pas les contenus non originaux open source déjà sous licence présents, cités de manière non exhaustive dans la partie [présentation](#presentation).
+
+
