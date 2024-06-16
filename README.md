@@ -2,11 +2,19 @@
 
 <img align="left" width="100" height="100" src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png"> 
 
-Formulaire de saisie web et serveur HTTP minimaliste open source pour la saisie de données des équipes d'accès aux droits. Projet utilisé en point d'accès au droit dans un centre social parisien.
+Formulaire de saisie web et serveur HTTP minimaliste open source pour la saisie de données des équipes d'accès aux droits. Projet utilisé en point d'accès aux droits dans un centre social parisien.
 
 ![Exemple de formulaire](/static/example.png)
 
-## Description
+## Sommaire
+
+1. [Présentation](#presentation)
+2. [Installation](#installation)
+3. [Utilisation](#utilisation)
+4. [Licence](#licence)
+
+
+## 1. Présentation
 Kombucha propose les fonctionnalités suivantes :
 - Formulaire web : saisie de données par champs pour une personne, un groupe, ou une liste de personnes.
 - Vérication de l'appartenance à une zone Quartier Prioritaire de la Ville (QPV) pour une adresse postale donnée, avec autocomplétion.
@@ -30,7 +38,7 @@ Deux bases de données du gouvernement français sont utilisées :
  L'interface graphique utilisateur du serveur est construite avec [PyQt5](https://pypi.org/project/PyQt5/). 
 
 
-## 1. Installation
+## 2. Installation
 
 ### Sous Debian
 
@@ -44,7 +52,7 @@ cd ~/Kombucha
 
 Ce script vérifie via `apt` l'installation de `python3, python3-venv, python3-pip` ainsi que les bibliothèques requises au fonctionnement du serveur. Une fois la vérification terminée, un environnement virtuel python venv est crée dans un sous-dossier **/.venv** à la racine du répertoire de travail. 
 
-Un fois l'exécution du script terminée, le serveur est prêt à être lancé à l'aide des scripts `run.sh` ou `run_gui.sh` (voir [Utilisation](#2-utilisation)).
+Un fois l'exécution du script terminée, le serveur est prêt à être lancé à l'aide des scripts `run.sh` ou `run_gui.sh` (voir [Utilisation](#3-utilisation)).
 
 ### Autres (Fedora, Windows, MacOS)
 
@@ -57,7 +65,7 @@ Un fois l'exécution du script terminée, le serveur est prêt à être lancé �
 
 L'outil de recherche d'adresse et la base de donnée associée étant libre d'accès, il est possible de rentre autonome le traitement des adresses (autocomplétion + obtention des coordonnées géographiques pour vérification QPV).s
 
-## 2. Utilisation
+## 3. Utilisation
 
 ### Côté serveur
 
@@ -73,5 +81,7 @@ cd ~/Kombucha
 ./run_gui.sh
 ```
 
+### Côté client
 
-## 3. License
+
+## 4. License
