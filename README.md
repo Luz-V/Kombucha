@@ -2,6 +2,7 @@
 Formulaire de saisie web pour l'accès au droit 
 
 ## [En construction]
+![Exemple de formulaire](/static/example.png)
 
 ## Description
 
