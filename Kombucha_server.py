@@ -11,7 +11,6 @@ import os.path
 
 
 ###### Serveur web minimaliste pour la gestion de requêtes en local d'un formulaire HTML
-
 ###### Utilise le framework Flask, ainsi que d'autres bibliothèques python tel que Geopandas et Fiona
 ###### La rechercher et autocomplétion d'adresse fait appel à l'API Adresse du gouvernement français et le script jQuery v3.6.0 ( (c) OpenJS Foundation)
 
@@ -23,8 +22,7 @@ import os.path
 
 ###### Il est vivement conseillé d'utiliser un gestionnaire environnement virtuel comme venv pour l'installation des dépendances python. L'installation d'Addok indiquée ci-dessus se fait via docker.   
 
-###### Lancement de l'application sur machine : flask --app formulaire_mix run
-###### Lancement de l'application en réseau local : flask --app formulaire run_mix --host=0.0.0.0
+###### Lancement de l'application sur machine ou en réseau local => voir fin du fichier
 
 
 ###### INSTALLATION CLIENT : 
@@ -32,6 +30,7 @@ import os.path
 # http://$adresse_serveur:5000/
 # http://$adresse_serveur:5000/group
 # http://$adresse_serveur:5000/massive
+
 
 
 ##### Fonctions et variables globales
