@@ -2,9 +2,8 @@
 
 # 1. Installation de Python3 via apt-get
 echo "
-Mise à jour des listes de paquets et installation de python3, venv, pip ...
+Installation de python3, venv, pip ...
 "
-sudo apt-get update
 sudo apt-get install -y python3 python3-venv python3-pip
 
 # 2. Création d'un environnement virtuel venv
