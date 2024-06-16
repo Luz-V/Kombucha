@@ -15,17 +15,17 @@ La vocation de cet projet est de fournir un outil facile à prendre en main pour
 ⚠️ Les données traitées par ce formulaire sont **anonymisées**. Par soucis de respect du RGPD, ce programme n'a **pas vocation à traiter des données nominatives**
 
 - Si la procédure d'installation est effectuée intégralement (y compris l'[étape optionnelle](#optionnel--création-dune-instance-adock)), toutes les données saisies seront **traitées en réseau local** par le serveur.
-- Si l'instance Addock n'est pas installée, la vérification des adresses postales nécessitera une requête à l'[API Adresse](https://api-adresse.data.gouv.fr/search/) du domaine 'data.gouv.fr'. 
+- Si l'instance Addock n'est pas installée, la vérification des adresses postales nécessitera une requête à l'[API Adresse](https://api-adresse.data.gouv.fr/search/) du domaine data.gouv.fr. 
 
 Coté client, L'interface web est un modeste formulaire HTML/CSS pourvu de quelques fonctions JavaScript complétées par un script [jQuery](https://jquery.com/license/). 
 La partie serveur HTTPS fonctionne avec la bibliothèque python [Flask](https://flask.palletsprojects.com) adossés à quelques outils de traitement géographiques et géométriques [fiona](https://pypi.org/project/fiona/), [shapely](https://pypi.org/project/shapely/).
 
-La recherche d'adresse fait appel l'[API Adresse](https://api-adresse.data.gouv.fr/search/) du gouvernement français, qui peut être hébergé localement via docker, ou en utilisant l'instance disponible sur ([api-adresse.data.gouv.fr/search/](https://api-adresse.data.gouv.fr/search/)). 
+La recherche d'adresse fait appel l'[API Adresse](https://api-adresse.data.gouv.fr/search/) du gouvernement français, qui peut être hébergé localement via docker, ou en utilisant l'instance disponible à l'adresse [api-adresse.data.gouv.fr/search/](https://api-adresse.data.gouv.fr/search/). 
 Deux bases de données du gouvernement français sont utilisées :
 - [Base Adresse Nationale](https://adresse.data.gouv.fr/donnees-nationales)
 - [Quartiers Prioritaires de la politique de la ville (QPV)](https://www.data.gouv.fr/fr/datasets/quartiers-prioritaires-de-la-politique-de-la-ville-qpv/)
 
- L'interface graphique utilisaeur côté serveur est construite avec PyQt5. 
+ L'interface graphique utilisateur du serveur est construite avec [PyQt5](https://pypi.org/project/PyQt5/). 
 
 
 ## 1. Installation
