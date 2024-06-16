@@ -50,6 +50,8 @@ app = Flask(__name__)
 
 # Variable pour contrôler l'état de l'application Flask
 flask_running = False
+# Booléen indicateur de l'installation + lance d'instance Adock
+adock_running = False
 
 ##### Formulaire principal
 @app.route('/', methods=['GET', 'POST'])
@@ -196,17 +198,20 @@ def massive():
 # Utilisation de l'API Adresse du gouvernement français
 @app.route('/suggest_address')
 def suggest_address():    
-        query = request.args.get('q')
-        # Instance locale OU celle de data.gouv.fr
-        #api_url = 'http://localhost:7878/search/'
+    query = request.args.get('q')
+    # Instance locale OU celle de data.gouv.fr
+    if adock_running:
+        api_url = 'http://localhost:7878/search/'
+    else:
         api_url = 'https://api-adresse.data.gouv.fr/search/'
-        response = requests.get(api_url, params={'q': query, 'limit': 10})
-        if response.status_code == 200:
-                data = response.json()
-                suggestions = [{'properties': address['properties']} for address in data['features']]
-                return jsonify(suggestions)
-        else:
-                return jsonify([])     
+        
+    response = requests.get(api_url, params={'q': query, 'limit': 10})
+    if response.status_code == 200:
+        data = response.json()
+        suggestions = [{'properties': address['properties']} for address in data['features']]
+        return jsonify(suggestions)
+    else:
+        return jsonify([])     
 
 
 ##### Récupèration des coordonnées correspondantes à une adresse donnée
@@ -214,8 +219,10 @@ def suggest_address():
 def get_coordinates():
     address = request.args.get('address')
     # Instance locale OU celle de data.gouv.fr
-    #api_url = 'http://localhost:7878/search/'
-    api_url = 'https://api-adresse.data.gouv.fr/search/'
+    if adock_running:
+        api_url = 'http://localhost:7878/search/'
+    else:
+            api_url = 'https://api-adresse.data.gouv.fr/search/'
     response = requests.get(api_url, params={'q': address, 'limit': 1})
     if response.status_code == 200:
         data = response.json()
