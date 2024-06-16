@@ -1,4 +1,6 @@
-<h1> <img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="70"> Kombucha </h1>
+<section>
+<img style="display: inline-block;" src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="70"> <h1 style="display: inline-block;"> Kombucha </h1>
+</section>
 
 Formulaire de saisie web pour l'accès aux droits :
 ![Exemple de formulaire](/static/example.png)
