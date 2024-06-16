@@ -63,15 +63,18 @@ Un fois l'exécution du script terminée, le serveur est prêt à être lancé �
 
 ### Optionnel : Création d'une instance adock
 
-L'outil de recherche d'adresse et la base de donnée associée étant en accès libre, il est possible de rentre local le traitement des adresses (autocomplétion + obtention des coordonnées géographiques pour vérification QPV). Pour cela, environ **2,5 Go d'espace disque** sont nécessaire sur serveur pour télécharger la base Adresse Nationale et faire tourner une instance de l'API nécessaire à la recherche locale d'adresse.
+L'outil de recherche d'adresse et la base de donnée associée étant en accès libre, il est possible d'effectuer localement le traitement des adresses (autocomplétion + obtention des coordonnées géographiques pour vérification QPV). Pour cela, environ **2,5 Go d'espace disque** sont nécessaires sur serveur pour télécharger la base Adresse Nationale complète et faire tourner une instance de l'API nécessaire à la recherche locale d'adresse.
 
 La procédure détaillée est décrite ici : [Installer une instance avec les données de la base adresse nationale](https://github.com/BaseAdresseNationale/addok-docker#installer-une-instance-avec-les-donn%C3%A9es-de-la-base-adresse-nationale)
 
-Une fois l'installation terminée, **deux passages** du fichier `Kombucha_server.py` sont à modifier pour utiliser l'instance locale et non l'instance en ligne :
+Une fois l'installation terminée, **deux passages** du fichier `Kombucha_server.py` sont à modifier dans le code pour utiliser l'instance locale et non l'instance en ligne :
 ```
 api_url = 'http://localhost:7878/search/' #Ligne à décommenter pour utiliser l'instance locale
 api_url = 'https://api-adresse.data.gouv.fr/search/' #Ligne à décommenter pour utiliser l'instance en ligne
 ```
+
+⚠️ Ce choix implique une **mise à jour annuelle** de la Base Adresse Nationale. Mais il en va de toute façon de même pour les données géographiques QPV.
+
 
 ## 3. Utilisation
 
