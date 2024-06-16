@@ -12,6 +12,11 @@
 Formulaire de saisie web pour l'accès aux droits :
 ![Exemple de formulaire](/static/example.png)
 
+<h1 style="display: inline-flex; align-items: center; margin: 0;">
+  <img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="100" style="margin-right: 10px;">
+  Kombucha
+</h1>
+
 ## Description
 
 Serveur HTTP minimaliste et open source pour la saisie de données des équipes d'accès aux droits. Kombucha propose les fonctionnalités suivantes :
