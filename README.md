@@ -1,13 +1,13 @@
-<table style="border-collapse: collapse; border: none;">
+<h1><table style="border-collapse: collapse; border: none;">
   <tr style="border: none;">
     <td style="border: none; vertical-align: middle;">
       <img src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png" width="48">
     </td>
     <td style="border: none; vertical-align: middle;">
-      <h1 style="display: inline; margin: 0;">Kombucha</h1>
+      <span style="display: inline; margin: 0;">Kombucha</span>
     </td>
   </tr>
-</table>
+</table><h1>
 
 Formulaire de saisie web pour l'accès aux droits :
 ![Exemple de formulaire](/static/example.png)
