@@ -30,7 +30,7 @@ Si la procédure d'installation est effectuée intégralement (y compris l'[éta
 Coté client, l'interface web est un modeste formulaire HTML/CSS assorti de quelques fonctions JavaScript complétées par un script [jQuery](https://jquery.com/license/) pour l'autocomplétion. 
 La partie serveur HTTP fonctionne avec la bibliothèque python [Flask](https://flask.palletsprojects.com) adossée aux outils de traitement géographique [fiona](https://pypi.org/project/fiona/) et [geopandas](https://geopandas.org), ainsi que la bibliothèque de géométrie [shapely](https://pypi.org/project/shapely/).
 
-La recherche d'adresse fait appel à l'[API Adresse](https://api-adresse.data.gouv.fr/search/) du gouvernement français, qui peut être hébergée localement via docker (avec la liste de toutes les adresses de France), ou en utilisant l'instance disponible à l'adresse [api-adresse.data.gouv.fr/search/](https://api-adresse.data.gouv.fr/search/). 
+La recherche d'adresse fait appel à l'[API Adresse](https://api-adresse.data.gouv.fr/search/) du gouvernement français, dont une instance peut être hébergée localement via docker (avec la liste de toutes les adresses de France), ou de manière distante en utilisant celle disponible à l'adresse [api-adresse.data.gouv.fr/search/](https://api-adresse.data.gouv.fr/search/). 
 Deux bases de données du gouvernement français sont utilisées :
 - [Base Adresse Nationale](https://adresse.data.gouv.fr/donnees-nationales)
 - [Quartiers Prioritaires de la politique de la ville (QPV)](https://www.data.gouv.fr/fr/datasets/quartiers-prioritaires-de-la-politique-de-la-ville-qpv/)
