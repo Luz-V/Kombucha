@@ -125,7 +125,7 @@ Le contenu original proposé dans ce dépot est sous licence MIT. Il est utilisa
 - [Python](https://docs.python.org/3/license.html)
 - [pip](https://github.com/pypa/pip/blob/main/LICENSE.txt)
 - [Virtualenv](https://github.com/pypa/virtualenv/blob/main/LICENSE) 
-- [Docker
+- [Docker Engine](https://docs.docker.com/engine/) + [Docker-compose](https://github.com/docker/compose/blob/main/LICENSE)
 - [API Adresse + Base Adresse Nationale + Données QPV](https://github.com/etalab/licence-ouverte/blob/master/LO.md)
 - [Flask](https://flask.palletsprojects.com/en/2.3.x/license/)
 - [PyQt5](https://doc.qt.io/qtforpython-6/licenses.html)
