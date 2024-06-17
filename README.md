@@ -70,7 +70,7 @@ La procédure détaillée est décrite ici : [Installer une instance avec les do
 Une fois l'installation terminée, la variable du booléen **adock_running** déclarée en début du fichier `Kombucha_server.py` doit être modifiée directement dans le code comme égale à `True` :
 ```
 # Booléen indicateur de l'installation + lancement d'instance Adock
-adock_running = False
+adock_running = True
 ```
 
 ⚠️ Ce choix implique une **mise à jour annuelle** de la Base Adresse Nationale. Mais il en va de toute façon de même pour les données géographiques QPV.
