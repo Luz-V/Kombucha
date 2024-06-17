@@ -92,7 +92,7 @@ cd ~/Kombucha
 ./run_gui.sh
 ```
 
-Lors du lancement du serveur (via le terminal ou l'interface de contrôle), Flask indique dans un message l'adresse http du serveur à communiquer aux clients. L'exemple ci-dessous est extrait des logs Flask :
+Lors du lancement du serveur (via le terminal ou l'interface de contrôle), Flask indique dans un message d'en-tête l'adresse http du serveur à communiquer aux clients. L'exemple ci-dessous est extrait des logs Flask :
 ```
  * Serving Flask app 'Kombucha_server'
  * Debug mode: off
