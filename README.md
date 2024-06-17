@@ -127,7 +127,7 @@ Le contenu original proposé dans ce dépot est sous licence MIT. Il est utilisa
 - [Flask](https://flask.palletsprojects.com/en/2.3.x/license/)
 - [PyQt5](https://doc.qt.io/qtforpython-6/licenses.html)
 - [jQuery](https://jquery.com/license/)
-- [Requets](https://requests.readthedocs.io/en/latest/)
+- [Requests](https://requests.readthedocs.io/en/latest/)
 - [Fiona](https://github.com/Toblerity/Fiona?tab=BSD-3-Clause-1-ov-file)
 - [Geopandas](https://github.com/geopandas/geopandas/blob/main/LICENSE.txt)
 - [Shapely](https://github.com/shapely/shapely/blob/main/LICENSE.txt)
