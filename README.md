@@ -1,3 +1,5 @@
+![License](https://img.shields.io/github/license/Luz-V/Kombucha)
+
 <h1>Kombucha</h1>
 
 <img align="left" width="100" height="100" src="https://github.com/Luz-V/Kombucha/blob/main/static/icon4.png"> 
