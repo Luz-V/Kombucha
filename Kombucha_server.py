@@ -50,8 +50,8 @@ app = Flask(__name__)
 
 # Variable pour contrôler l'état de l'application Flask
 flask_running = False
-# Booléen indicateur de l'installation + lance d'instance Adock
-adock_running = False
+# Booléen indicateur de l'installation + lance d'instance Addok
+addok_running = False
 
 ##### Formulaire principal
 @app.route('/', methods=['GET', 'POST'])

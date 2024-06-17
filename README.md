@@ -27,7 +27,7 @@ La vocation de ce projet est de fournir un outil facile à prendre en main pour 
 
 ⚠️ Les données traitées par ce formulaire sont **anonymisées**. Par soucis de respect du RGPD, ce programme n'a **pas vocation à traiter des données nominatives**.
 
-Si la procédure d'installation est effectuée intégralement (y compris l'[étape optionnelle](#optionnel--création-dune-instance-adock)), toutes les données saisies seront **traitées en réseau local** par le serveur. Sinon, la vérification des adresses postales nécessitera une requête à l'[API Adresse](https://adresse.data.gouv.fr/api-doc/adresse) du domaine data.gouv.fr. Il s'agit alors de la seule requête web effectuée lors de la saisie.
+Si la procédure d'installation est effectuée intégralement (y compris l'[étape optionnelle](#optionnel--création-dune-instance-addock)), toutes les données saisies seront **traitées en réseau local** par le serveur. Sinon, la vérification des adresses postales nécessitera une requête à l'[API Adresse](https://adresse.data.gouv.fr/api-doc/adresse) du domaine data.gouv.fr. Il s'agit alors de la seule requête web effectuée lors de la saisie.
 
 Coté client, l'interface web est un modeste formulaire HTML/CSS assorti de quelques fonctions JavaScript complétées par un script [jQuery](https://jquery.com/license/) pour l'autocomplétion. 
 La partie serveur HTTP fonctionne avec la bibliothèque python [Flask](https://flask.palletsprojects.com) adossée aux outils de traitement géographique [fiona](https://pypi.org/project/fiona/) et [geopandas](https://geopandas.org), ainsi que la bibliothèque de géométrie [shapely](https://pypi.org/project/shapely/).
@@ -63,16 +63,16 @@ Un fois l'exécution du script terminée, le serveur est prêt à être lancé �
 2. Installer les bibliothèques python suivantes (via anaconda, pip ou autre, environnement virtuel conseillé) : `flask, shapely, datetime, geopandas, fiona, requests, PyQt5, ansi2html`
 
 
-### Optionnel : Création d'une instance adock
+### Optionnel : Création d'une instance addok
 
 L'outil de recherche d'adresse et la base de donnée associée étant en accès libre, il est possible d'effectuer localement le traitement des adresses (autocomplétion + obtention des coordonnées géographiques pour vérification QPV). Pour cela, environ **2,5 Go d'espace disque** sont nécessaires sur serveur pour télécharger la base Adresse Nationale complète et faire tourner une instance de l'API nécessaire à la recherche locale d'adresse.
 
 La procédure détaillée est décrite ici : [Installer une instance avec les données de la base adresse nationale](https://github.com/BaseAdresseNationale/addok-docker#installer-une-instance-avec-les-donn%C3%A9es-de-la-base-adresse-nationale)
 
-Une fois l'installation terminée, la variable du booléen **adock_running** déclarée en début du fichier `Kombucha_server.py` doit être modifiée directement dans le code comme égale à `True` :
+Une fois l'installation terminée, la variable du booléen **addok_running** déclarée en début du fichier `Kombucha_server.py` doit être modifiée directement dans le code comme égale à `True` :
 ```
-# Booléen indicateur de l'installation + lancement d'instance Adock
-adock_running = True
+# Booléen indicateur de l'installation + lancement d'instance Addok
+addok_running = True
 ```
 
 ⚠️ Ce choix implique une **mise à jour annuelle** de la Base Adresse Nationale. Mais il en va de toute façon de même pour les données géographiques QPV.
@@ -125,6 +125,7 @@ Le contenu original proposé dans ce dépot est sous licence MIT. Il est utilisa
 - [Python](https://docs.python.org/3/license.html)
 - [pip](https://github.com/pypa/pip/blob/main/LICENSE.txt)
 - [Virtualenv](https://github.com/pypa/virtualenv/blob/main/LICENSE) 
+- [Docker
 - [API Adresse + Base Adresse Nationale + Données QPV](https://github.com/etalab/licence-ouverte/blob/master/LO.md)
 - [Flask](https://flask.palletsprojects.com/en/2.3.x/license/)
 - [PyQt5](https://doc.qt.io/qtforpython-6/licenses.html)
