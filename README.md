@@ -119,6 +119,20 @@ Trois formulaires sont implémentés :
 
 ## 4. Licence
 
-Le contenu original proposé dans ce dépot est sous licence MIT. Il est utilisable et modifiable librement, sous condition d'inclure la licence d'origine. La licence complète est [disponible ici](https://github.com/Luz-V/Kombucha/blob/main/LICENSE). Cette licence n'inclut pas les contenus non originaux open source déjà sous licence présents, cités de manière non exhaustive dans la partie [présentation](#presentation).
+Le contenu original proposé dans ce dépot est sous licence MIT. Il est utilisable et modifiable librement, sous condition d'inclure la licence d'origine. La licence complète est [disponible ici](https://github.com/Luz-V/Kombucha/blob/main/LICENSE). Cette licence n'inclut pas les contenus non originaux open source déjà sous licence utilisés dans ce projet, dont voici une liste que j'espère la plus exhaustive possible :
+- [Python](https://docs.python.org/3/license.html)
+- [pip](https://github.com/pypa/pip/blob/main/LICENSE.txt) (pip3)
+- [Virtualenv](https://github.com/pypa/virtualenv/blob/main/LICENSE) 
+- [API Adresse + Base Adresse Nationale + Données QPV](https://github.com/etalab/licence-ouverte/blob/master/LO.md)
+- [Flask](https://flask.palletsprojects.com/en/2.3.x/license/)
+- [PyQt5](https://doc.qt.io/qtforpython-6/licenses.html)
+- [jQuery](https://jquery.com/license/)
+- [Requets](https://requests.readthedocs.io/en/latest/)
+- [Fiona](https://github.com/Toblerity/Fiona?tab=BSD-3-Clause-1-ov-file)
+- [Geopandas](https://github.com/geopandas/geopandas/blob/main/LICENSE.txt)
+- [Shapely](https://github.com/shapely/shapely/blob/main/LICENSE.txt)
+- [ansi2html](https://github.com/pycontribs/ansi2html/blob/main/LICENSE)
+- [Pathlib](https://github.com/chigopher/pathlib/blob/master/LICENSE)
+
 
 
