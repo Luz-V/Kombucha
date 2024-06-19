@@ -135,7 +135,7 @@ Le contenu original proposé dans ce dépot est sous licence MIT. Il est utilisa
 - [Fiona](https://github.com/Toblerity/Fiona?tab=BSD-3-Clause-1-ov-file)
 - [Geopandas](https://github.com/geopandas/geopandas/blob/main/LICENSE.txt)
 - [Shapely](https://github.com/shapely/shapely/blob/main/LICENSE.txt)
-- [ansi2html](https://github.com/pycontribs/ansi2html/blob/main/LICENSE)
+- [Ansi2html](https://github.com/pycontribs/ansi2html/blob/main/LICENSE)
 - [Pathlib](https://github.com/chigopher/pathlib/blob/master/LICENSE)
 
 
