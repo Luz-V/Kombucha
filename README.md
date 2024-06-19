@@ -124,7 +124,7 @@ Trois formulaires sont implémentés :
 
 Le contenu original proposé dans ce dépot est sous licence MIT. Il est utilisable et modifiable librement, sous condition d'inclure la licence d'origine. La licence complète est [disponible ici](https://github.com/Luz-V/Kombucha/blob/main/LICENSE). Cette licence n'inclut pas les contenus non originaux open source déjà sous licence utilisés dans ce projet, dont voici une liste que j'espère la plus exhaustive possible :
 - [Python](https://docs.python.org/3/license.html)
-- [pip](https://github.com/pypa/pip/blob/main/LICENSE.txt)
+- [Pip](https://github.com/pypa/pip/blob/main/LICENSE.txt)
 - [Virtualenv](https://github.com/pypa/virtualenv/blob/main/LICENSE) 
 - [Docker Engine](https://docs.docker.com/engine/) + [Docker-compose](https://github.com/docker/compose/blob/main/LICENSE)
 - [API Adresse + Base Adresse Nationale + Données QPV](https://github.com/etalab/licence-ouverte/blob/master/LO.md)
