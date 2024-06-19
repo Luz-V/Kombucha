@@ -23,11 +23,12 @@ Kombucha propose les fonctionnalités suivantes :
 - Enregistrement des données sur serveur au format CSV.
 - Interface graphique utilisateur pour activer/désactiver le serveur HTTP et afficher les logs de connexion côté serveur.
 
-La vocation de ce projet est de fournir un outil facile à prendre en main pour les aidants numériques, tout en conservant les données saisie en réseau local pour s'assurer de leur protection. 
+La vocation de ce projet est de fournir un outil facile à prendre en main pour les aidants numériques, tout en conservant les données saisie en réseau local pour s'assurer de leur protection. Aucune installation n'est requise côté utilisateur, l'outil se présente sous forme de pages web accessibles via navigateur. 
 
 ⚠️ Les données traitées par ce formulaire sont **anonymisées**. Par soucis de respect du RGPD, ce programme n'a **pas vocation à traiter des données nominatives**.
 
-Si la procédure d'installation est effectuée intégralement (y compris l'[étape optionnelle](#optionnel--création-dune-instance-addock)), toutes les données saisies seront **traitées en réseau local** par le serveur. Sinon, la vérification des adresses postales nécessitera une requête à l'[API Adresse](https://adresse.data.gouv.fr/api-doc/adresse) du domaine data.gouv.fr. Il s'agit alors de la seule requête web effectuée lors de la saisie.
+
+Les étapes d'installation côté serveur sont disponibles dans la [section suivante](#2-Installation). Si la procédure est effectuée intégralement (y compris l'[étape optionnelle](#optionnel--création-dune-instance-addock)), toutes les données saisies seront **traitées en réseau local** par le serveur. Sinon, la vérification des adresses postales nécessitera une requête à l'[API Adresse](https://adresse.data.gouv.fr/api-doc/adresse) du domaine data.gouv.fr. Il s'agit alors de la seule requête web effectuée lors de la saisie.
 
 Coté client, l'interface web est un modeste formulaire HTML/CSS assorti de quelques fonctions JavaScript complétées par un script [jQuery](https://jquery.com/license/) pour l'autocomplétion. 
 La partie serveur HTTP fonctionne avec la bibliothèque python [Flask](https://flask.palletsprojects.com) adossée aux outils de traitement géographique [fiona](https://pypi.org/project/fiona/) et [geopandas](https://geopandas.org), ainsi que la bibliothèque de géométrie [shapely](https://pypi.org/project/shapely/).
