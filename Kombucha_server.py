@@ -200,7 +200,7 @@ def massive():
 def suggest_address():    
     query = request.args.get('q')
     # Instance locale OU celle de data.gouv.fr
-    if adock_running:
+    if addok_running:
         api_url = 'http://localhost:7878/search/'
     else:
         api_url = 'https://api-adresse.data.gouv.fr/search/'
@@ -219,10 +219,10 @@ def suggest_address():
 def get_coordinates():
     address = request.args.get('address')
     # Instance locale OU celle de data.gouv.fr
-    if adock_running:
+    if addok_running:
         api_url = 'http://localhost:7878/search/'
     else:
-            api_url = 'https://api-adresse.data.gouv.fr/search/'
+        api_url = 'https://api-adresse.data.gouv.fr/search/'
     response = requests.get(api_url, params={'q': address, 'limit': 1})
     if response.status_code == 200:
         data = response.json()
