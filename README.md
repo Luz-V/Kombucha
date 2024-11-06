@@ -19,7 +19,7 @@ Formulaire de saisie web et serveur HTTP minimaliste open source pour la saisie 
 ## 1. Présentation
 Kombucha propose les fonctionnalités suivantes :
 - Formulaire web : saisie de données par champs pour une personne, une liste de personne, ou un groupe.
-- Vérification de l'appartenance à une zone Quartier Prioritaire de la politique de la Ville (QPV) pour une adresse postale donnée, avec autocomplétion.
+- Vérification de l'appartenance à une zone Quartier Prioritaires de la politique de la politique de la Ville (QPV) pour une adresse postale donnée, avec autocomplétion.
 - Enregistrement des données sur serveur au format CSV.
 - Interface graphique utilisateur pour activer/désactiver le serveur HTTP et afficher les logs de connexion côté serveur.
 
