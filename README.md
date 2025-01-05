@@ -19,15 +19,16 @@ Formulaire de saisie web et serveur HTTP minimaliste open source pour la saisie 
 ## 1. Présentation
 Kombucha propose les fonctionnalités suivantes :
 - Formulaire web : saisie de données par champs pour une personne, une liste de personne, ou un groupe.
-- Vérification de l'appartenance à une zone Quartier Prioritaire de la politique de la Ville (QPV) pour une adresse postale donnée, avec autocomplétion.
+- Vérification de l'appartenance à une zone Quartier Prioritaires de la politique de la politique de la Ville (QPV) pour une adresse postale donnée, avec autocomplétion.
 - Enregistrement des données sur serveur au format CSV.
 - Interface graphique utilisateur pour activer/désactiver le serveur HTTP et afficher les logs de connexion côté serveur.
 
-La vocation de ce projet est de fournir un outil facile à prendre en main pour les aidants numériques, tout en conservant les données saisie en réseau local pour s'assurer de leur protection. 
+La vocation de ce projet est de fournir un outil facile à prendre en main pour les aidants numériques, tout en conservant les données saisie en réseau local pour s'assurer de leur protection. Aucune installation n'est requise côté utilisateur, l'outil se présente sous forme de pages web accessibles via navigateur. 
 
 ⚠️ Les données traitées par ce formulaire sont **anonymisées**. Par soucis de respect du RGPD, ce programme n'a **pas vocation à traiter des données nominatives**.
 
-Si la procédure d'installation est effectuée intégralement (y compris l'[étape optionnelle](#optionnel--création-dune-instance-addock)), toutes les données saisies seront **traitées en réseau local** par le serveur. Sinon, la vérification des adresses postales nécessitera une requête à l'[API Adresse](https://adresse.data.gouv.fr/api-doc/adresse) du domaine data.gouv.fr. Il s'agit alors de la seule requête web effectuée lors de la saisie.
+
+Les étapes d'installation côté serveur sont disponibles dans la [section suivante](#2-Installation). Si la procédure est effectuée intégralement (y compris l'[étape optionnelle](#optionnel--création-dune-instance-addock)), toutes les données saisies seront **traitées en réseau local** par le serveur. Sinon, la vérification des adresses postales nécessitera une requête à l'[API Adresse](https://adresse.data.gouv.fr/api-doc/adresse) du domaine data.gouv.fr. Il s'agit alors de la seule requête web effectuée lors de la saisie.
 
 Coté client, l'interface web est un modeste formulaire HTML/CSS assorti de quelques fonctions JavaScript complétées par un script [jQuery](https://jquery.com/license/) pour l'autocomplétion. 
 La partie serveur HTTP fonctionne avec la bibliothèque python [Flask](https://flask.palletsprojects.com) adossée aux outils de traitement géographique [fiona](https://pypi.org/project/fiona/) et [geopandas](https://geopandas.org), ainsi que la bibliothèque de géométrie [shapely](https://pypi.org/project/shapely/).
@@ -123,7 +124,7 @@ Trois formulaires sont implémentés :
 
 Le contenu original proposé dans ce dépot est sous licence MIT. Il est utilisable et modifiable librement, sous condition d'inclure la licence d'origine. La licence complète est [disponible ici](https://github.com/Luz-V/Kombucha/blob/main/LICENSE). Cette licence n'inclut pas les contenus non originaux open source déjà sous licence utilisés dans ce projet, dont voici une liste que j'espère la plus exhaustive possible :
 - [Python](https://docs.python.org/3/license.html)
-- [pip](https://github.com/pypa/pip/blob/main/LICENSE.txt)
+- [Pip](https://github.com/pypa/pip/blob/main/LICENSE.txt)
 - [Virtualenv](https://github.com/pypa/virtualenv/blob/main/LICENSE) 
 - [Docker Engine](https://docs.docker.com/engine/) + [Docker-compose](https://github.com/docker/compose/blob/main/LICENSE)
 - [API Adresse + Base Adresse Nationale + Données QPV](https://github.com/etalab/licence-ouverte/blob/master/LO.md)
@@ -134,5 +135,5 @@ Le contenu original proposé dans ce dépot est sous licence MIT. Il est utilisa
 - [Fiona](https://github.com/Toblerity/Fiona?tab=BSD-3-Clause-1-ov-file)
 - [Geopandas](https://github.com/geopandas/geopandas/blob/main/LICENSE.txt)
 - [Shapely](https://github.com/shapely/shapely/blob/main/LICENSE.txt)
-- [ansi2html](https://github.com/pycontribs/ansi2html/blob/main/LICENSE)
+- [Ansi2html](https://github.com/pycontribs/ansi2html/blob/main/LICENSE)
 - [Pathlib](https://github.com/chigopher/pathlib/blob/master/LICENSE)
