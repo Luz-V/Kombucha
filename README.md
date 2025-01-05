@@ -136,6 +136,3 @@ Le contenu original proposé dans ce dépot est sous licence MIT. Il est utilisa
 - [Shapely](https://github.com/shapely/shapely/blob/main/LICENSE.txt)
 - [ansi2html](https://github.com/pycontribs/ansi2html/blob/main/LICENSE)
 - [Pathlib](https://github.com/chigopher/pathlib/blob/master/LICENSE)
-
-
-
