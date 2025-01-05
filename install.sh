@@ -18,22 +18,23 @@ echo "
 Installation des bibliothèques Python...
 "
 # Liste des bibliothèques à installer
-libraries=(
-    flask
-    shapely
-    datetime
-    geopandas
-    fiona
-    requests
-    PyQt5
-    ansi2html  
-)
-for library in "${libraries[@]}"
-do
-    pip install "$library"
-done
+libraries=(flask shapely datetime geopandas fiona requests PyQt5 ansi2html)
+pip install "$libraries"
 
-# 4. Fin et désactivation de l'environnement virtuel
+# 4. Installation de l'instance Addock
+# Voir : https://github.com/BaseAdresseNationale/addok-docker#installer-une-instance-avec-les-donn%C3%A9es-de-la-base-adresse-nationale)
+echo "
+Installation de l'instance Addock avec la base de donnée adresses du gouvernement...
+"
+cd ./Adresses
+wget https://adresse.data.gouv.fr/data/ban/adresses/latest/addok/addok-france-bundle.zip
+mkdir addok-data
+unzip -d addok-data addok-france-bundle.zip
+wget https://raw.githubusercontent.com/BaseAdresseNationale/addok-docker/master/docker-compose.yml
+rm addok-france-bundle.zip
+cd ..
+
+# 5. Fin et désactivation de l'environnement virtuel
 echo "
 Installation terminée.
 
@@ -42,6 +43,10 @@ Pour exécuter le serveur :
 
 Pour exécuter le serveur graphique : 
 ./run_gui.sh
+
+Pour démarrer l'instance Docker : 
+cd ./Adresses
+sudo docker-compose up
 
 Pour activer manuellement l'environnement virtuel :
 . .venv/bin/activate
