@@ -1,13 +1,14 @@
-from flask import Flask, render_template, request, jsonify, url_for
+from flask import Flask, render_template, request, jsonify
 from shapely.geometry import Point
 from datetime import date as dt
 from geopandas import read_file
 from fiona import listlayers
-from sys import argv
+#from sys import argv
 from pathlib import Path
+#import ezodf
 import requests
 import csv
-import os.path
+#import os.path
 
 
 ###### Serveur web minimaliste pour la gestion de requêtes en local d'un formulaire HTML
@@ -43,6 +44,8 @@ fichier_gpkg = str(Path.home()) + "/Kombucha/QPV_split_WGS84.gpkg"
 ##### Chemin vers le fichier d'export des données
 ### A mettre à jour en fonction de l'arborsecence système
 filename = str(Path.home()) + "/Kombucha/data.csv"
+filename_ods = str(Path.home()) + "/Kombucha/data_ods.ods"
+filename_csv = str(Path.home()) + "/Kombucha/data_ods.csv"
 
 
 ##### Application Flask 
@@ -194,6 +197,37 @@ def massive():
     return render_template('formulaire_massif.html',today_date=today_date)
 
 
+##### Formulaire demdes
+@app.route('/demdes', methods=['GET', 'POST'])
+def demdes():
+    
+    # Date actuelle au format ISO (AAAA-MM-JJ)
+    today_date = dt.today().isoformat()  
+    
+    # Requête POST : Récupération des données du formulaire
+    if request.method == 'POST':
+        date = request.form['date']
+        demarche = request.form['demarche']
+        dysfonction = request.form['dysfonction']
+        changement = request.form['changement']
+        quifait = request.form['quifait']
+        verbatim = request.form.get('verbatim') 
+        capture = request.form['capture']
+            
+        # Enregistrement des données dans un fichier CSV
+        data_ods = [demarche, dysfonction, changement, quifait, verbatim, capture]
+        print("Export des données dans data_d.ods")
+        #save_ods(filename_ods, data_ods)
+        save_data(filename_csv, data_ods)
+
+        # Retourne le même modèle HTML avec un message de succès
+        return render_template('formulaire_demdes.html', today_date=today_date, message='Données enregistrées avec succès !')
+    
+    # Si la méthode est GET, simplement retourner le modèle HTML
+    return render_template('formulaire_demdes.html',today_date=today_date)
+
+
+
 ##### Recherche d'adresse pour autocomplétion
 # Utilisation de l'API Adresse du gouvernement français
 @app.route('/suggest_address')
@@ -279,6 +313,37 @@ def save_data(path, data):
             writer.writerow(["Date", "Genre", "Âge", "Provenance", "Quartier prioritaire de la Ville", "Type de logement", "Objet de la demande", "Traitement en interne", "Personne redirigée", "Commentaire"])
         # Écrire les données
         writer.writerow(data)
+        
+        
+#def save_data_ods(path, data):
+
+    # Charger ou créer un document ODS
+#    try:
+#        spreadsheet = ezodf.opendoc(path)  # Charger un document existant
+#        sheet = spreadsheet.sheets[0]     # Utiliser la première feuille
+#    except FileNotFoundError:
+#        spreadsheet = ezodf.newdoc(doctype="ods", filename=path)  # Nouveau document
+#        sheet = ezodf.Sheet('Feuille1', size=(100, 10))  # Par exemple, 100 lignes et 10 colonnes
+#        spreadsheet.sheets += sheet
+    
+    # Vérifier si les en-têtes doivent être ajoutés
+#    if sheet[0, 0].value is None:  # Test si la première cellule est vide
+#        headers = ["Demarche", "Dysfonctionnement", "Changement", 
+#                   "Qui doit faire le changement", "Verbatim", "Capture"]
+#        for col_index, header in enumerate(headers):
+#            sheet[(0, col_index)].set_value(header)
+            
+    # Trouver la première ligne vide
+#    row_index = 1
+#    while sheet[row_index, 0].value is not None:
+#        row_index += 1
+        
+    # Écrire les données
+#    for col_index, value in enumerate(data):
+#        sheet[(row_index, col_index)].set_value(value)
+    
+    # Sauvegarder le fichier
+#    spreadsheet.save()
 
 ##### Lancer l'application Flask avec ou sans mode deboggage
 # Indiquer les options ici

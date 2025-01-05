@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <!-- Formulaire HTML pour relevé de statistiques d'accès aux droits -->
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Titre -->
+        <title>Kombucha - Formulaire Demdes</title>
+        <!-- Icone favicon.ico -->
+        <link rel="shortcut icon" href="/static/favicon.ico">
+        
+        <!-- Style CSS -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+            
+        <!-- Fonctions locales -->
+        <script>
+                    
+            // Affichage des champs supplémentaires en fonction du type de logement sélectionné
+            
+            //function afficherCapture() {
+            //    var NomCapture = document.getElementById("capture").value;
+
+            //    if (NomCapture !== "") {
+            //        NomCapture.style.display = "block";
+            //    } else {
+            //        NomCapture.style.display = "block";
+            //    }
+            //}
+            
+            // Reset de tous les champs saisis
+            
+            function effacerChamps() {
+                document.getElementById("formulaire").reset();
+                document.getElementById("capture").style.display = "none";
+            }
+
+            // fonction exécutée lorsque la page est chargée/rechargée
+            //window.onload = effacerChamps()
+            
+        </script>
+    </head>
+
+    <!-- Corps de page -->
+
+    <body>
+
+        <!-- Titre -->
+        <div class="image-container">
+            <img class="logo" src="{{ url_for('static', filename='icon4.png') }}" alt="Icône Kombucha">
+        </div>
+        <div class="title-container">
+            <h1>Kombucha</h1>
+            <div style="margin-bottom: 10px;"></div>
+            <h2>Formulaire hors ligne - Dématérialiser Sans Déshumaniser</h2>
+        </div>
+        
+        <!-- Début Formulaire -->
+        <form id="formulaire" method="post" action="/demdes">
+
+            <!-- Liste à points -->
+            <ul>
+                <li>
+                    <!-- Champ de saisie pour la date -->
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" value="{{ today_date }}" required>
+                </li>
+                <li>
+                    <!-- Champ de saisie pour la démarche -->
+                    <label for="demarche">Démarche / Situation de vie :</label><br>
+                    <textarea id="demarche" name="demarche" rows="2" cols="70" maxlength="300" required></textarea>
+                </li>
+                <li>
+                    <!-- Champ de saisie pour le dysfonctionnement -->
+                    <label for="dysfonction">Qu'est ce qui dysfonctionne ?</label><br>
+                    <textarea id="dysfonction" name="dysfonction" rows="2" cols="70" maxlength="300" required></textarea>
+                </li>
+                <li>
+                    <!-- Champ de saisie pour le dysfonctionnement -->
+                    <label for="changement">Quels sont les changements à faire ?</label><br>
+                    <textarea id="changement" name="changement" rows="4" cols="70" maxlength="600"></textarea>
+                </li>
+                <li>
+                    <!-- Champ de saisie pour 'Qui doit faire ces changements' -->
+                    <label for="quifait">Qui doit faire ces changements ?</label><br>
+                    <textarea id="quifait" name="quifait" rows="1" cols="70" maxlength="150"></textarea>
+                </li>
+                <li>
+                    <!-- Champ de saisie pour le verbatim -->
+                    <label for="verbatim">Verbatim usager :</label><br>
+                    <textarea id="verbatim" name="verbatim" rows="4" cols="70" maxlength="600"></textarea>
+                </li>
+                <li>
+                    <!-- Champ de saisie pour la capture -->
+                    <label for="capture">Capture d'écran</label>
+                    <button type="button" onclick="effacerChamps()"><span><img src="{{ url_for('static', filename='paperclip-solid.svg') }}"> Joindre ...</span></button>
+                    <!-- <textarea id="capture" name="capture" rows="2" cols="70" maxlength="300"></textarea><br><br>-->
+                </li>
+            </ul>
+            
+            <!-- Boutons pour soumettre et effacer le formulaire -->
+            <button type="submit"><span><img src="{{ url_for('static', filename='floppy-disk-regular.svg') }}"></span> Enregistrer</button>
+            <button type="button" onclick="effacerChamps()"><span><img src="{{ url_for('static', filename='eraser-solid.svg') }}"></span>Effacer</button>
+                
+        </form>
+        
+        <!-- Message de confirmation de l'enregistrement -->
+        {% if message %}
+                <script>alert("Données sauvegardées");</script>
+        {% endif %}
+        
+    </body>
+</html>
+
