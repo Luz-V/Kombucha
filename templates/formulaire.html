@@ -1,252 +1,350 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-    <!-- Formulaire HTML pour relevé de statistiques d'accès aux droits -->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <!-- Titre -->
-        <title>Test-William</title>
-        <!-- Icone favicon.ico -->
-        <link rel="shortcut icon" href="/static/favicon.ico">
-        
-        <!-- Style CSS -->
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-            
-        <!-- Fonctions -->
-            
-        <!-- Script d'autocomplétion pour la recherche d'adresse
-        Fonction anonyme qui encapsule le code jQuery
-        Crédits : jQuery v3.6.0 | (c) OpenJS Foundation and other contributors | jquery.org/license -->
-        <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
-        
-        <!--  Fonction de suggestion d'adresse basée sur le script précédent-->
-        <!--  + Fonction de vérfication QPV à partir de l'adresse et de ses coordonnées -->
-        <script src="{{ url_for('static', filename='js/recherche_qpv.js') }}"></script>
-        
-        <!-- Fonctions locales -->
-        <script>
-           
-            // Calcule d'âge à partir de l'année de naissance saisie
-            
-            function calculerAge() {
-                var anneeNaissance = document.getElementById("annee_naissance").value;
-                var age = new Date().getFullYear() - anneeNaissance;
-                document.getElementById("age").value = age;
-            }
+    <title>Kombucha - Formulaire</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
 
-            // Affichage du champ du code postal en cas de choix "Autre code postal"
-            
-            function afficherCodePostal() {
-                var provenance = document.getElementById("provenance").value;
-                var codePostalField = document.getElementById("code_postal_field");
-                if (provenance == "Autre code postal") {
-                    codePostalField.style.display = "block";
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Styles mode clair (par défaut) -->
+    <style>
+        body {
+            background-color: #fff;
+            color: #000;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #999;
+            border-radius: 3px;
+            padding: 5px;
+            font-size: 1rem;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #666;
+        }
+
+        label {
+            color: #000;
+        }
+
+        .title-container h1,
+        .title-container h2 {
+            color: #000;
+        }
+
+        .image-container img {
+            filter: none;
+        }
+
+        button {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #eee;
+        }
+
+        #darkToggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #ddd;
+            color: #000;
+            padding: 6px 12px;
+            border-radius: 5px;
+            border: none;
+            z-index: 9999;
+        }
+    </style>
+
+    <!-- Styles mode sombre -->
+    <style>
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode input,
+        body.dark-mode select,
+        body.dark-mode textarea,
+        body.dark-mode button {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            border: 1px solid #444;
+        }
+
+        body.dark-mode input::placeholder,
+        body.dark-mode textarea::placeholder {
+            color: #aaa;
+        }
+
+        body.dark-mode label,
+        body.dark-mode .title-container h1,
+        body.dark-mode .title-container h2 {
+            color: #fff;
+        }
+
+        body.dark-mode .image-container img {
+            filter: brightness(0.9);
+        }
+
+        body.dark-mode button {
+            background-color: #333;
+            border: 1px solid #555;
+        }
+
+        body.dark-mode button:hover {
+            background-color: #444;
+        }
+
+        body.dark-mode select:disabled,
+        body.dark-mode input:disabled,
+        body.dark-mode textarea:disabled {
+            background-color: #333;
+            color: #888;
+        }
+
+        body.dark-mode #darkToggle {
+            background: #444;
+            color: #eee;
+        }
+    </style>
+
+    <!-- Script dark mode toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Crée et insère le bouton toggle
+            const btn = document.createElement('button');
+            btn.id = 'darkToggle';
+            btn.textContent = 'Mode sombre';
+            btn.onclick = () => {
+                document.body.classList.toggle('dark-mode');
+                // Change le texte du bouton selon l'état
+                if (document.body.classList.contains('dark-mode')) {
+                    btn.textContent = 'Mode clair';
                 } else {
-                    codePostalField.style.display = "none";
+                    btn.textContent = 'Mode sombre';
+                }
+            };
+            document.body.prepend(btn);
+        });
+    </script>
+
+    <!-- Tes scripts et fonctions locales -->
+    <script>
+        $(document).ready(function () {
+            $('#adresse').on('input', function () {
+                var input = $(this).val();
+                if (input.length >= 3) {
+                    $.get('/suggest_address', { q: input }, function (data) {
+                        $('#suggestions').empty();
+                        data.forEach(function (suggestion) {
+                            $('#suggestions').append('<option value="' + suggestion.properties.label + '">');
+                        });
+                    });
+                }
+            });
+
+            function verifierQPV() {
+                var selectedAddress = $('#adresse').val();
+                if (selectedAddress) {
+                    $.get('/get_coordinates', { address: selectedAddress }, function (data) {
+                        if ('latitude' in data && 'longitude' in data) {
+                            $.post('/process_coordinates', { latitude: data.latitude, longitude: data.longitude }, function (response) {
+                                mettreAJourQPV(response.qpv_status);
+                            });
+                        } else {
+                            alert('Adresse non trouvée');
+                        }
+                    });
+                } else {
+                    alert("Veuillez entrer une adresse avant de vérifier le QPV.");
                 }
             }
-                    
-            // Affichage des champs supplémentaires en fonction du type de logement sélectionné
-            
-            function afficherChampsSupplementaires() {
-                var typeLogement = document.getElementById("type_logement").value;
-                var bailleurSocialField = document.getElementById("bailleur_social_field");
-                var foyerField = document.getElementById("foyer_field");
-                var precisezField = document.getElementById("precisez_field");
-            
-                if (typeLogement == "Logement social") {
-                    bailleurSocialField.style.display = "block";
-                    foyerField.style.display = "none";
-                    precisezField.style.display = "none";
-                } else if (typeLogement == "Foyer") {
-                    bailleurSocialField.style.display = "none";
-                    foyerField.style.display = "block";
-                    precisezField.style.display = "none";
-                } else if (typeLogement == "Autre") {
-                    bailleurSocialField.style.display = "none";
-                    foyerField.style.display = "none";
-                    precisezField.style.display = "block";
-                } else {
-                    bailleurSocialField.style.display = "none";
-                    foyerField.style.display = "none";
-                    precisezField.style.display = "none";
+
+            $('#verifierQPV').on('click', verifierQPV);
+        });
+
+        function mettreAJourQPV(NomQPV) {
+            var qpvSelect = document.getElementById("qpv");
+            if (NomQPV) {
+                if (NomQPV === "QPV_amandiers") {
+                    alert("Adresse en QPV Amandiers")
+                    qpvSelect.value = "Amandiers";
+                } else if (NomQPV === "QPV_P20_WGS84") {
+                    alert("Adresse en QPV Porte 20eme")
+                    qpvSelect.value = "Porte 20ème";
+                } else if (NomQPV === "QPV_autres_WGS84") {
+                    alert("Adresse en QPV (autres)")
+                    qpvSelect.value = "Autre QPV";
                 }
+            } else {
+                alert("Adresse Hors QPV")
+                qpvSelect.value = "Hors QPV";
             }
-            
-            // Reset de tous les champs saisis
-            
-            function effacerChamps() {
-                document.getElementById("formulaire").reset();
-                document.getElementById("code_postal_field").style.display = "none";
-                document.getElementById("bailleur_social_field").style.display = "none";
-                document.getElementById("foyer_field").style.display = "none";
-                document.getElementById("precisez_field").style.display = "none";
+        }
+
+        function calculerAge() {
+            var anneeNaissance = document.getElementById("annee_naissance").value;
+            var age = new Date().getFullYear() - anneeNaissance;
+            document.getElementById("age").value = age;
+        }
+
+        function afficherCodePostal() {
+            var provenance = document.getElementById("provenance").value;
+            var codePostalField = document.getElementById("code_postal_field");
+            if (provenance == "Autre code postal") {
+                codePostalField.style.display = "block";
+            } else {
+                codePostalField.style.display = "none";
             }
+        }
 
-            // fonction exécutée lorsque la page est chargée/rechargée
-            //window.onload = effacerChamps()
-            
-        </script>
-    </head>
+        function afficherChampsSupplementaires() {
+            var typeLogement = document.getElementById("type_logement").value;
+            var bailleurSocialField = document.getElementById("bailleur_social_field");
+            var foyerField = document.getElementById("foyer_field");
+            var precisezField = document.getElementById("precisez_field");
 
-    <!-- Corps de page -->
+            if (typeLogement == "Logement social") {
+                bailleurSocialField.style.display = "block";
+                foyerField.style.display = "none";
+                precisezField.style.display = "none";
+            } else if (typeLogement == "Foyer") {
+                bailleurSocialField.style.display = "none";
+                foyerField.style.display = "block";
+                precisezField.style.display = "none";
+            } else if (typeLogement == "Autre") {
+                bailleurSocialField.style.display = "none";
+                foyerField.style.display = "none";
+                precisezField.style.display = "block";
+            } else {
+                bailleurSocialField.style.display = "none";
+                foyerField.style.display = "none";
+                precisezField.style.display = "none";
+            }
+        }
 
-    <body>
+        function effacerChamps() {
+            document.getElementById("formulaire").reset();
+            document.getElementById("code_postal_field").style.display = "none";
+            document.getElementById("bailleur_social_field").style.display = "none";
+            document.getElementById("foyer_field").style.display = "none";
+            document.getElementById("precisez_field").style.display = "none";
+        }
+    </script>
+</head>
 
-        <!-- Titre -->
-        <div class="image-container">
-            <img class="logo" src="{{ url_for('static', filename='icon4.png') }}" alt="Icône Kombucha">
-        </div>
-        <div class="title-container">
-            <h1>Kombucha</h1>
-            <div style="margin-bottom: 10px;"></div>
-            <h2>Formulaire hors ligne de saisie pour l'accès au droit</h2>
-        </div>
-        
-        <!-- Début Formulaire -->
-        <form id="formulaire" method="post" action="/">
+<body>
 
-            <!-- Liste à points -->
-            <ul>
-                <li>
-                    <!-- Champ de saisie pour la date -->
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" value="{{ today_date }}" required>
-                </li>
-                <li>
-                    <label for="genre">Genre:</label>
-                    <select id="genre" name="genre" style="width: 6ch" required>
-                        <option value="" disabled selected hidden></option>
-                        <option value="M">M</option>
-                        <option value="F">F</option>
-                        <option value="Autre">Autre</option>
-                    </select>
-                </li>
-                <li>
-                    <!-- Champs âge et année de naissance sur la même ligne -->
-                    <div class="inline-fields">
-                        <!-- âge -->
-                        <label for="age">Âge:</label>
-                        <input type="number" id="age" name="age" placeholder="Âge" style="margin-right: 5px; width: 6ch" required>
-                    
-                        <!-- année de naissance -->
-                        <label for="annee_naissance">Ou année de naissance:</label>
-                        <input type="number" id="annee_naissance" name="annee_naissance" placeholder="Année" onchange="calculerAge()" style="width: 8ch">
-                    
-                    </div>
-                </li>
-                <li>
-                    <!-- Menu déroulant pour la provenance -->
-                    <label for="provenance">Provenance:</label>
-                    <select id="provenance" name="provenance" onchange="afficherCodePostal()" required>
-                        <option value="" disabled selected hidden></option>
-                        <option value="Quartier des Amandiers">Quartier des Amandiers</option>
-                        <option value="Autre 20ème">Autre 20ème</option>
-                        <option value="Autre code postal">Autre code postal</option>
-                    </select><br>
-                    
-                    <!-- Champ supplémentaire pour le code postal -->
-                    <div id="code_postal_field" style="display: none; margin-top: 5px;">
-                        <label for="code_postal">Code postal:</label>
-                        <input type="text" id="code_postal" name="code_postal" maxlength="5"><br>
-                    </div>
-                </li>
-                <li>
-                    <!-- Saisie d'adresse pour vérification QPV -->
-                    <label for="adresse">Adresse pour vérification QPV (ne sera pas enregistrée) :</label>
-                    <div style="margin-bottom: 5px;"></div>
-                    <button id="verifierQPV" type="button">
-                        <span>
-                            <img src="{{ url_for('static', filename='map-pin-solid.svg') }}"> Vérifier QPV
-                        </span>
-                    </button>
-                    <input type="text" id="adresse" name="adresse" list="suggestions" style="width: 65ch; font-size: 1rem !important;" autocomplete="off" placeholder="Adresse postale">
-                    <datalist id="suggestions"></datalist><br>
-                    <div style="margin-bottom: 5px;"></div>
-                    
-                    <!-- Menu déroulant pour le quartier prioritaire de la Ville -->
-                    <label for="qpv">&#8658; QPV:</label>
-                    <select id="qpv" name="qpv" required>
-                        <option value="" disabled selected hidden></option>
-                        <option value="Non renseigné">Non renseigné</option>
-                        <option value="Amandiers">Amandiers</option>
-                        <option value="Porte 20ème">Porte 20ème</option>
-                        <option value="Autre QPV">Autre QPV</option>
-                        <option value="Hors QPV">Hors QPV</option>
-                    </select> <i>(Indiquez 'Non renseigné' en l'absence d'adresse)</i>
-                </li>
-                <li>    
-                    <!-- Menu déroulant pour le type de logement -->
-                    <label for="type_logement">Type de logement:</label>
-                    <select id="type_logement" name="type_logement" onchange="afficherChampsSupplementaires()" required>
-                        <option value="" disabled selected hidden></option>
-                        <option value="Logement social">Logement social</option>
-                        <option value="Foyer">Foyer</option>
-                        <option value="Logement privé">Logement privé</option>
-                        <option value="Autre">Autre</option>
-                    </select>
+    <div class="image-container">
+        <img class="logo" src="/static/icon4.png" alt="Icône Kombucha" />
+    </div>
+    <div class="title-container">
+        <h1>Kombucha</h1>
+        <div style="margin-bottom: 10px;"></div>
+        <h2>Formulaire hors ligne de saisie pour l'accès au droit</h2>
+    </div>
 
-                    <!-- Champ supplémentaire pour le nom du bailleur social -->
-                    <div id="bailleur_social_field" style="display: none; margin-top: 5px;">
-                        <label for="bailleur_social">Nom du bailleur social:</label>
-                        <select id="bailleur_social" name="bailleur_social">
-                            <option value="Elogie">Elogie</option>
-                            <option value="RIVP">RIVP</option>
-                            <option value="Paris Habitat">Paris Habitat</option>
-                            <option value="Autre bailleur social">Autre bailleur social</option>
-                        </select>
-                    </div>
+    <form id="formulaire" method="post" action="/">
 
-                    <!-- Champ supplémentaire pour le nom du foyer -->
-                    <div id="foyer_field" style="display: none; margin-top: 5px;">
-                        <label for="foyer">Type de foyer:</label>
-                        <select id="foyer" name="foyer">
-                            <option value="Coallia">Coallia</option>
-                            <option value="Adef">Adef</option>
-                            <option value="Adoma">Adoma</option>
-                            <option value="Autre">Autre</option>
-                        </select>
-                    </div>
+        <ul>
+            <li>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" value="2025-06-04" required />
+            </li>
+            <li>
+                <label for="genre">Genre:</label>
+                <select id="genre" name="genre" style="width: 6ch" required>
+                    <option value="" disabled selected hidden></option>
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                    <option value="Autre">Autre</option>
+                </select>
+            </li>
+            <li>
+                <div class="inline-fields">
+                    <label for="age">Âge:</label>
+                    <input type="number" id="age" name="age" placeholder="Âge" style="margin-right: 5px; width: 6ch" required />
+                    <label for="annee_naissance">Ou année de naissance:</label>
+                    <input type="number" id="annee_naissance" name="annee_naissance" placeholder="Année" onchange="calculerAge()" style="width: 8ch" />
+                </div>
+            </li>
+            <li>
+                <label for="provenance">Provenance:</label>
+                <select id="provenance" name="provenance" onchange="afficherCodePostal()" required>
+                    <option value="" disabled selected hidden></option>
+                    <option value="Quartier des Amandiers">Quartier des Amandiers</option>
+                    <option value="Quartier Porte de la Chapelle">Quartier Porte de la Chapelle</option>
+                    <option value="Autre code postal">Autre code postal</option>
+                </select>
+            </li>
+            <li id="code_postal_field" style="display: none;">
+                <label for="code_postal">Code Postal:</label>
+                <input type="text" id="code_postal" name="code_postal" />
+            </li>
+            <li>
+                <label for="adresse">Adresse:</label>
+                <input list="suggestions" type="text" id="adresse" name="adresse" placeholder="Saisir adresse" autocomplete="off" required />
+                <datalist id="suggestions"></datalist>
+                <button type="button" id="verifierQPV">Vérifier QPV</button>
+            </li>
+            <li>
+                <label for="qpv">QPV:</label>
+                <select id="qpv" name="qpv" readonly>
+                    <option value="" disabled selected hidden></option>
+                    <option value="Hors QPV">Hors QPV</option>
+                    <option value="Amandiers">Amandiers</option>
+                    <option value="Porte 20ème">Porte 20ème</option>
+                    <option value="Autre QPV">Autre QPV</option>
+                </select>
+            </li>
+            <li>
+                <label for="type_logement">Type de logement:</label>
+                <select id="type_logement" name="type_logement" onchange="afficherChampsSupplementaires()" required>
+                    <option value="" disabled selected hidden></option>
+                    <option value="Logement social">Logement social</option>
+                    <option value="Foyer">Foyer</option>
+                    <option value="Autre">Autre</option>
+                </select>
+            </li>
+            <li id="bailleur_social_field" style="display: none;">
+                <label for="bailleur_social">Bailleur social:</label>
+                <input type="text" id="bailleur_social" name="bailleur_social" />
+            </li>
+            <li id="foyer_field" style="display: none;">
+                <label for="foyer">Foyer:</label>
+                <input type="text" id="foyer" name="foyer" />
+            </li>
+            <li id="precisez_field" style="display: none;">
+                <label for="precisez">Précisez:</label>
+                <input type="text" id="precisez" name="precisez" />
+            </li>
+        </ul>
 
-                    <!-- Champ supplémentaire pour la précision -->
-                    <div id="precisez_field" style="display: none; margin-top: 5px;">
-                        <label for="precisez">Précisez:</label>
-                        <input type="text" style="width: 40ch" id="precisez" name="precisez" maxlength="50">
-                    </div>
-                </li>
-                <li>
-                    <!-- Champ de saisie pour l'objet de la demande -->
-                    <label for="objet_demande">Objet de la demande:</label><br>
-                    <textarea id="objet_demande" name="objet_demande" rows="2" cols="70" maxlength="300" required></textarea><br><br>
+        <button type="submit">Envoyer</button>
+        <button type="button" onclick="effacerChamps()">Effacer</button>
 
-                    <!-- Cases à cocher pour le traitement de la demande -->
-                    <input type="checkbox" id="interne_amandiers" name="interne_amandiers" value="1">
-                    <label for="interne_amandiers">Résolution en interne, à Amandiers Connexions</label>
-                    <br>
-                    <input type="checkbox" id="redirigee" name="redirigee" value="1">
-                    <label for="redirigee">Personne redirigée</label>
-                </li>
-                <li>
-                    <!-- Champ de saisie pour les commentaires -->
-                    <label for="commentaire">Commentaire (facultatif):</label><br>
-                    <textarea id="commentaire" name="commentaire" rows="2" cols="70" maxlength="300"></textarea>
-                </li>
-            </ul>
-            
-            <!-- Boutons pour soumettre et effacer le formulaire -->
-            <button type="submit"><span><img src="{{ url_for('static', filename='floppy-disk-regular.svg') }}"></span> Enregistrer</button>
-            <button type="button" onclick="effacerChamps()"><span><img src="{{ url_for('static', filename='eraser-solid.svg') }}"></span>Effacer</button>
-                
-        </form>
-        
-        <!-- Message de confirmation de l'enregistrement -->
-        {% if message %}
-                <script>alert("Données sauvegardées");</script>
-        {% endif %}
-        
-    </body>
+    </form>
+
+</body>
+
 </html>
 
