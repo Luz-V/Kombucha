@@ -41,16 +41,14 @@ body {
     transform-origin: top left; /* Point d'origine en haut à gauche */
 }
 input {
+    border-radius: 2px;
     font-size: 1rem ;
 }
-select {
+
+
+select, button, textarea {
     font-size: 1rem ;
-}
-button {
-    font-size: 1rem ;
-}
-textarea {
-    font-size: 1rem ;
+    border-radius: 4px;
 }
 ul {
     list-style-type: disc; /* Type de puce */
@@ -84,3 +82,69 @@ button img {
     flex-direction: row;
     align-items: center;
 }
+/* Styles mode sombre */
+#darkToggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #ddd;
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    z-index: 9999;
+}
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+body.dark-mode input {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode select,
+body.dark-mode textarea,
+body.dark-mode button {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #aaa;
+}
+
+body.dark-mode label,
+body.dark-mode .title-container h1,
+body.dark-mode .title-container h2 {
+    color: #fff;
+}
+
+body.dark-mode .image-container img {
+    filter: brightness(0.9);
+}
+
+body.dark-mode button {
+    background-color: #333;
+    border: 1px solid #555;
+}
+
+body.dark-mode button:hover {
+    background-color: #444;
+}
+
+body.dark-mode select:disabled,
+body.dark-mode input:disabled,
+body.dark-mode textarea:disabled {
+    background-color: #333;
+    color: #888;
+}
+body.dark-mode #darkToggle {
+    background: #444;
+    color: #eee;
+}
+body.dark-mode img {
+    filter: invert(1);
+}
+
