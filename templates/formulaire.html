@@ -237,9 +237,33 @@
                     </div>
                 </li>
                 <li>
+		        <!-- Menu déroulant pour les thématiques -->
+		        <label for="themes">Thématique concernée :</label><br>
+		        <select id="themes" name="themes" style="width: 50ch;" required>
+		            <option value="" disabled selected hidden></option>
+		            <option value="Etat civil, séjour, nationalité">Etat civil, séjour, nationalité</option>
+		            <option value="Retraite">Retraite</option>
+		            <option value="Caf, aides sociales">Caf, aides sociales</option>
+		            <option value="Logement">Logement</option>
+		            <option value="Fiscalité, Banque">Fiscalité, Banque</option>
+		            <option value="Handicap, santé">Handicap, santé</option>
+		            <option value="Justice">Justice</option>
+		            <option value="Transports">Transports</option>
+		            <option value="Vacances, loisirs">Vacances, loisirs</option>
+		            <option value="Consommation, énergie">Consommation, énergie</option>
+		            <option value="Emploi, insertion, chômage">Emploi, insertion, chômage</option>
+		            <option value="Scolarité, parentalité, prévention">Scolarité, parentalité, prévention</option>
+		            <option value="UNRPA">UNRPA</option>
+		            <option value="APEIS">APEIS</option>
+		            <option value="PSY">PSY</option>
+		            <option value="PADAMOQ">PADAMOQ</option>
+		            <option value="P19">P19</option>
+		        </select>
+                </li>
+                <li>
                     <!-- Champ de saisie pour l'objet de la demande -->
                     <label for="objet_demande">Objet de la demande:</label><br>
-                    <textarea id="objet_demande" name="objet_demande" rows="2" cols="70" maxlength="300" required></textarea><br><br>
+                    <textarea id="objet_demande" name="objet_demande" rows="1" cols="70" maxlength="300" required></textarea><br><br>
 
                     <!-- Cases à cocher pour le traitement de la demande -->
                     <input type="checkbox" id="interne_amandiers" name="interne_amandiers" value="1">
@@ -248,31 +272,6 @@
                     <input type="checkbox" id="redirigee" name="redirigee" value="1">
                     <label for="redirigee">Personne redirigée</label>
                 </li>
-                <li>
-                <!-- Menu déroulant pour les thématiques -->
-                <label for="themes">Thématique concernée :</label><br>
-                <select id="themes" name="themes" style="width: 50ch;" required>
-                    <option value="" disabled selected hidden></option>
-                    <option value="Etat civil, séjour, nationalité">Etat civil, séjour, nationalité</option>
-                    <option value="Retraite">Retraite</option>
-                    <option value="Caf, aides sociales">Caf, aides sociales</option>
-                    <option value="Logement">Logement</option>
-                    <option value="Fiscalité, Banque">Fiscalité, Banque</option>
-                    <option value="Handicap, santé">Handicap, santé</option>
-                    <option value="Justice">Justice</option>
-                    <option value="Transports">Transports</option>
-                    <option value="Vacances, loisirs">Vacances, loisirs</option>
-                    <option value="Consommation, énergie">Consommation, énergie</option>
-                    <option value="Emploi, insertion, chômage">Emploi, insertion, chômage</option>
-                    <option value="Scolarité, parentalité, prévention">Scolarité, parentalité, prévention</option>
-                    <option value="UNRPA">UNRPA</option>
-                    <option value="APEIS">APEIS</option>
-                    <option value="PSY">PSY</option>
-                    <option value="PADAMOQ">PADAMOQ</option>
-                    <option value="P19">P19</option>
-                </select>
-                </li>
-
                 <li>
                     <!-- Champ de saisie pour les commentaires -->
                     <label for="commentaire">Commentaire (facultatif):</label><br>
