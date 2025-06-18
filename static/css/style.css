@@ -39,6 +39,7 @@ body {
     /********** ACCESSIBLITE : augmente le zoom ***************/
     transform: scale(1); /* Zoom de 20% */
     transform-origin: top left; /* Point d'origine en haut à gauche */
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 input {
     border-radius: 2px;
@@ -90,9 +91,9 @@ button img {
     background: #ddd;
     color: #000;
     padding: 6px 12px;
-    border-radius: 5px;
-    border: none;
+    border-radius: 4px;
     z-index: 9999;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 body.dark-mode {
     background-color: #121212;
@@ -127,7 +128,7 @@ body.dark-mode .image-container img {
 
 body.dark-mode button {
     background-color: #333;
-    border: 1px solid #555;
+/*    border: 1px solid #555;*/
 }
 
 body.dark-mode button:hover {
