@@ -38,11 +38,11 @@ import os.path
 ##### Chemin vers le fichier gpkg utilisé pour les QPV
 ### Partie à mettre à jour en cas de modifications des données QPV
 # Ici, nous avons adaptés ce fichier gpkg pour distinguer 3 types de QPV : QPV Amandiers, QPV porte 20ème, et autres QPV.
-fichier_gpkg = str(Path.home()) + "/Code/Kombucha//QPV_split_WGS84.gpkg"
+fichier_gpkg = str(Path().resolve()) + "/QPV_split_WGS84.gpkg"
 
 ##### Chemin vers le fichier d'export des données
 ### A mettre à jour en fonction de l'arborsecence système
-filename = str(Path.home()) + "/Code/Kombucha/data.csv"
+filename = str(Path().resolve()) + "/data.csv"
 
 
 ##### Application Flask 
