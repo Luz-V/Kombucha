@@ -38,11 +38,11 @@ import os.path
 ##### Chemin vers le fichier gpkg utilisé pour les QPV
 ### Partie à mettre à jour en cas de modifications des données QPV
 # Ici, nous avons adaptés ce fichier gpkg pour distinguer 3 types de QPV : QPV Amandiers, QPV porte 20ème, et autres QPV.
-fichier_gpkg = str(Path.home()) + "/Kombucha/QPV_split_WGS84.gpkg"
+fichier_gpkg = str(Path.home()) + "/Code/Kombucha//QPV_split_WGS84.gpkg"
 
 ##### Chemin vers le fichier d'export des données
 ### A mettre à jour en fonction de l'arborsecence système
-filename = str(Path.home()) + "/Kombucha/data.csv"
+filename = str(Path.home()) + "/Code/Kombucha/data.csv"
 
 
 ##### Application Flask 
@@ -74,6 +74,7 @@ def index():
         autre_logement = request.form['precisez']
         objet_demande = request.form['objet_demande']
         commentaire = request.form['commentaire']
+        themes = request.form['themes']
         
         # Indique les cases à cocher "traitement en interne" et "personne redirigée"
         interne_amandiers = "X" if request.form.get('interne_amandiers') else ""
@@ -93,7 +94,7 @@ def index():
             type_logement = autre_logement
             
         # Enregistrement des données dans un fichier CSV
-        data = [date, genre, age, provenance, qpv, type_logement, objet_demande, interne_amandiers, redirigee, commentaire]
+        data = [date, genre, age, provenance, qpv, type_logement, themes, objet_demande, interne_amandiers, redirigee, commentaire]
         print("Export des données dans data.csv :\n",data)
         save_data(filename, data)
 
@@ -276,7 +277,7 @@ def save_data(path, data):
         # Écrire les en-têtes de colonnes si le fichier est vide
         if file.tell() == 0:
             ### Partie à mettre à jour en cas de modifications des champs du formulaire
-            writer.writerow(["Date", "Genre", "Âge", "Provenance", "Quartier prioritaire de la Ville", "Type de logement", "Objet de la demande", "Traitement en interne", "Personne redirigée", "Commentaire"])
+            writer.writerow(["Date", "Genre", "Âge", "Provenance", "Quartier prioritaire de la Ville", "Type de logement", "Thême", "Objet de la demande", "Traitement en interne", "Personne redirigée", "Commentaire"])
         # Écrire les données
         writer.writerow(data)
 
